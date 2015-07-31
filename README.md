@@ -83,6 +83,10 @@ $ php app/console server:run
 
 Access to your admin panel by going to `<domain>/admin`
 
+A complete `app/Resources/views/base.html.twig` file is provided by default.
+Be sure to modify this file and override the meta blocks whenever is needed. Commented
+out you can find usefull examples with the full information links and validators.
+
 **Section under construction**
 
 [1]: http://symfony.com/
