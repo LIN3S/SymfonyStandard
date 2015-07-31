@@ -1,0 +1,13 @@
+# Learn more about admin services at
+# https://sonata-project.org/bundles/admin/master/doc/reference/architecture.html#the-admin-class
+services:
+#    sonata.admin.post:
+#        class: AppBundle\Admin\PostAdmin
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Post" }
+#        arguments:
+#            - ~
+#            - AppBundle\Entity\Post
+#            - ~
+#        calls:
+#            - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]
