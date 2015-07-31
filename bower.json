@@ -1,0 +1,8 @@
+{
+  "name": "wordpress-standard",
+  "author": "LIN3S",
+  "license": "MIT",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation"
+  }
+}

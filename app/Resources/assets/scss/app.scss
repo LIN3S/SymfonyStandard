@@ -1,4 +1,4 @@
-// This file is part of the Wordpress Standard project.
+// This file is part of the Symfony Standard project.
 //
 // Copyright (c) 2015 LIN3S <info@lin3s.com>
 //
@@ -7,18 +7,20 @@
 // 
 // @author Jon Torrado <jontorrado@gmail.com>
 
-//@import 'base/reset';
-//@import 'base/colors';
-//@import 'base/foundation_settings';
-//@import 'base/wp';
+@import 'base/reset';
+@import 'base/colors';
+@import 'base/foundation_settings';
+//@import 'base/common';
+//@import 'base/typography';
 
-//@import '../vendor/foundation/scss/foundation/components/grid';
+@import '../vendor/foundation/scss/foundation/components/grid';
 
-//@import 'layout/header';
-//@import 'layout/content';
-//@import 'layout/footer';
+@import 'layout/header';
+@import 'layout/content';
+@import 'layout/footer';
 
 //@import 'components/button';
 
+//@import 'pages/default';
+//@import 'pages/home';
 //@import 'pages/404';
-//@import 'pages/index';

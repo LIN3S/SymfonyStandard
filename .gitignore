@@ -26,8 +26,11 @@
 /web/bundles/
 /web/uploads/
 
-# Node dependencies
+# Node
 /node_modules/
+
+# Bower
+/app/Resources/assets/vendor/
 
 # PHPUnit
 /app/phpunit.xml
@@ -35,6 +38,7 @@
 
 # Build data
 /build/
+/web/css/
 
 # Composer PHAR
 /composer.phar

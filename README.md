@@ -93,20 +93,22 @@ out you can find usefull examples with the full information links and validators
 Front-end workflow
 ------------------
 
-First of all, download all the Ruby dependencies:
+First of all, download all the dependencies needed, for Ruby, bower and Node.js:
 ```
 $ bundle install
-```
-
-Then, install the Node.js dependencies:
-```
+$ bower install
 $ npm install
 ```
 
-After this, you will have the following commands available:
+Feel free to add and/or edit the bower dependencies by editing the `bower.json` file.
+
+After this initial step, you will have the following gulp tasks available:
 * `gulp sass`: compiles `app/Resources/assets/scss/app.scss` and moves the resulting files to `web/` folder.
 * `gulp scsslint`: it helps you to keep your SCSS files clean and readable.
 * `gulp watch`: check modifications within the `app/Resources/assets/scss/` in order to compile again.
+
+As you see, create and/or edit .scss files within the `app/Resources/assets/scss/` folder. An
+initial structure is already given for you.
 
 **Section under construction**
 
