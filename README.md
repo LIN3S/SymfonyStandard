@@ -54,6 +54,26 @@ After that, just run the following command in order to download the Composer dep
 $ composer install
 ```
 
+If your *parameters.yml* file was not created, right after finishing the composer process,
+the system will ask you some questions in order to create the needed file. If you want to
+create it by hand, just copy the *app/config/parameters.yml.dist* file:
+```
+$ cp app/config/parameters.yml.dist app/config/parameters.yml
+```
+
+If you want to create an admin user, follow these steps:
+```
+$ php app/console fos:user:create
+$ php app/console fos:user:promote --> give the ROLE_SUPER_ADMIN permission
+```
+
+In order to use the built-in server, use the following command:
+```
+$ php app/console server:run
+```
+
+Access to your admin panel by going to `<domain>/admin`
+
 **Section under construction**
 
 [1]: http://symfony.com/
