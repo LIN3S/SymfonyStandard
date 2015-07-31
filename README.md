@@ -90,6 +90,26 @@ out you can find usefull examples with the full information links and validators
 
 **Section under construction**
 
+Front-end workflow
+------------------
+
+First of all, download all the Ruby dependencies:
+```
+$ bundle install
+```
+
+Then, install the Node.js dependencies:
+```
+$ npm install
+```
+
+After this, you will have the following commands available:
+* `gulp sass`: compiles `app/Resources/assets/scss/app.scss` and moves the resulting files to `web/` folder.
+* `gulp scsslint`: it helps you to keep your SCSS files clean and readable.
+* `gulp watch`: check modifications within the `app/Resources/assets/scss/` in order to compile again.
+
+**Section under construction**
+
 [1]: http://symfony.com/
 [2]: http://lin3s.com
 [3]: https://sonata-project.org/bundles/admin

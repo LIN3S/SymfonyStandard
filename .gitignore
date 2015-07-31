@@ -26,6 +26,9 @@
 /web/bundles/
 /web/uploads/
 
+# Node dependencies
+/node_modules/
+
 # PHPUnit
 /app/phpunit.xml
 /phpunit.xml
