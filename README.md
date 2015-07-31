@@ -1,6 +1,6 @@
-Symfony Boilerplate
+Symfony Standard
 ===========================
-> The "Wordpress Standard" LIN3S boilerplate.
+> The "Symfony Standard" LIN3S boilerplate.
 
 Why?
 ----
