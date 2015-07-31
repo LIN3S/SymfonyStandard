@@ -10,14 +10,15 @@ Symfony doesn't come with:
 
 1. [SonataAdminBundle][3]
 2. [SonataUserBundle][4]
-3. [LiipImagineBundle][5]
  * ToDo
+3. [LiipImagineBundle][5]
 3. Front-end workflow
  * [Sass][6]
  * [Npm][7]
  * [Bower][8]
  * [Gulp.js][9]
 4. [Capistrano][10] deploy
+5. A complete base.html.twig based on [HTML5 Boilerplate][11]
 
 **Section under construction**
 
@@ -26,12 +27,12 @@ Prerequisites
 The above sounds great so now, to start developing with our Symfony Standard, you need the the following
 requirements:
 
-1. [PHP][11] 5.4 or higher
-2. [MySQL][12] or [MongoDB][13]
-3. [Composer][14]: `curl -sS https://getcomposer.org/installer | php`
-4. [Ruby][15]
+1. [PHP][12] 5.4 or higher
+2. [MySQL][13] or [MongoDB][14]
+3. [Composer][15]: `curl -sS https://getcomposer.org/installer | php`
+4. [Ruby][16]
   * Bundler: `gem install bundler`
-5. [Node.js][16]
+5. [Node.js][17]
   * Bower: `npm install -g bower`
   * Gulp.js: `npm install -g gulp`
 
@@ -47,7 +48,7 @@ First of all, you need to **clone the project**:
 $ git clone git@github.com:LIN3S/SymfonyStandard.git <project-name> && cd <project-name>
 ```
 
-Then, *if you use Apache*, you should visit the [Symfony permissions section][17] of the
+Then, *if you use Apache*, you should visit the [Symfony permissions section][18] of the
 installation documentation so your CLI user and Apache user are allowed to write.
 
 After that, just run the following command in order to download the Composer dependencies:
@@ -99,10 +100,11 @@ out you can find usefull examples with the full information links and validators
 [8]: http://bower.io/
 [9]: http://gulpjs.com/
 [10]: http://capistranorb.com/
-[11]: http://php.net
-[12]: http://dev.mysql.com/downloads/
-[13]: https://www.mongodb.org/
-[14]: https://getcomposer.org/
-[15]: https://www.ruby-lang.org/en/downloads/
-[16]: https://nodejs.org/download/
-[17]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
+[11]: https://html5boilerplate.com/
+[12]: http://php.net
+[13]: http://dev.mysql.com/downloads/
+[14]: https://www.mongodb.org/
+[15]: https://getcomposer.org/
+[16]: https://www.ruby-lang.org/en/downloads/
+[17]: https://nodejs.org/download/
+[18]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
