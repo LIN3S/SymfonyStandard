@@ -1,0 +1,7 @@
+Application\Sonata\UserBundle\Entity\User:
+    type: entity
+    table: fos_user_user
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }

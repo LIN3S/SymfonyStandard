@@ -1,0 +1,8 @@
+Application\Sonata\UserBundle\Document\User:
+    type: document
+    collection: fos_user_user
+    customId: true
+    fields:
+        id:
+            id: true
+            strategy: INCREMENT
