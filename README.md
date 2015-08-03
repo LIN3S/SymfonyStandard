@@ -94,6 +94,12 @@ out you can find usefull examples with the full information links and validators
 We improved the production logs managed by [*monologs*][19]. Edit `app/config/config_prod.yml`
 so it suits your needs.
 
+Also, if your development IDE is [PhpStorm][20], uncomment the following line in `app/config/config.yml`:
+```
+framework:
+    ide: "phpstorm://open?file=%%f&line=%%1"
+```
+
 **Section under construction**
 
 Front-end workflow
@@ -139,3 +145,4 @@ to modify `gulpfile.js` `js:prod` task in order to add what your project needs.
 [17]: https://nodejs.org/download/
 [18]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
 [19]: http://symfony.com/doc/master/cookbook/logging/monolog.html
+[20]: https://www.jetbrains.com/phpstorm/

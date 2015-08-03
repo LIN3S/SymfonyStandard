@@ -30,6 +30,7 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    #ide: "phpstorm://open?file=%%f&line=%%1"
 
 # Twig Configuration
 twig:
