@@ -1,12 +1,16 @@
+# This file is part of the Symfony Standard project.
+#
+# Copyright (c) 2015 LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @author Jon Torrado <jontorrado@gmail.com>
+# @author Beñat Espiña <benatespina@gmail.com>
+
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: services.yml }
-
-# Put parameters here that don't need to change on each machine where the app is deployed
-# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
-parameters:
-    locale: en
 
 framework:
     #esi:             ~
