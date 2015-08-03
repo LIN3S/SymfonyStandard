@@ -21,7 +21,9 @@ monolog:
             handler:            grouped
         grouped:
             type:               group
-            members:            [streamed, swift]
+            members:
+                - nested
+                #- swift
         nested:
             type:               stream
             path:               "%kernel.logs_dir%/%kernel.environment%.log"
@@ -32,7 +34,7 @@ monolog:
         #    type:               swift_mailer
         #    from_email:         noreply@website.com
         #    to_email:           webmaster@company.com
-        #    subject:            "OOps"
+        #    subject:            "Fatal error"
         #    level:              debug
         #login:
         #    type:               stream
