@@ -18,9 +18,9 @@
     {% block head_style %}
         {# Override this block to add your own files! #}
         {% if app.debug %}
-        <link href="{{ asset('css/app.css') }}" type="text/css" rel="stylesheet">
-        {% else %}
         <link href="{{ asset('css/app.min.css') }}" type="text/css" rel="stylesheet">
+        {% else %}
+        <link href="{{ asset('css/app.css') }}" type="text/css" rel="stylesheet">
         {% endif %}
     {% endblock head_style %}
     
@@ -59,7 +59,6 @@
 
     {% block head_script %}
     {# Overwrite this block to add your own js here #}
-    <script src="{{ asset('js/app.min.js') }}"></script>
     {% endblock head_script %}
 
     {% block head_bottom %}
@@ -108,6 +107,7 @@
 
     {% block foot_script %}
     {# Overwrite this block to add your own js here #}
+    <script src="{{ asset('js/app.min.js') }}"></script>
     {% endblock foot_script %}
 {% endblock body %}
 
