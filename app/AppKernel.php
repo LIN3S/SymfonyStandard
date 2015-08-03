@@ -18,7 +18,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
  * @author Jon Torrado <jontorrado@gmail.com>
  * @author Beñat Espiña <benatespina@gmail.com>
  */
-final class AppKernel extends Kernel
+class AppKernel extends Kernel
 {
     /**
      * {@inheritdoc}
