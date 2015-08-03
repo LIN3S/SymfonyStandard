@@ -63,6 +63,9 @@ create it by hand, just copy the *app/config/parameters.yml.dist* file:
 $ cp app/config/parameters.yml.dist app/config/parameters.yml
 ```
 
+It may fail as soon as it finishes, just because the database is not created. Run
+`php app/console doctrine:database:create` in order to create it.
+
 If you are willing to use LiipImagineBundle, create the needed folder
 ```
 $ mkdir -p web/media/cache
@@ -87,6 +90,9 @@ Access to your admin panel by going to `<domain>/admin`
 A complete `app/Resources/views/base.html.twig` file is provided by default.
 Be sure to modify this file and override the meta blocks whenever is needed. Commented
 out you can find usefull examples with the full information links and validators.
+
+We improved the production logs managed by [*monologs*][19]. Edit `app/config/config_prod.yml`
+so it suits your needs.
 
 **Section under construction**
 
@@ -132,3 +138,4 @@ to modify `gulpfile.js` `js:prod` task in order to add what your project needs.
 [16]: https://www.ruby-lang.org/en/downloads/
 [17]: https://nodejs.org/download/
 [18]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
+[19]: http://symfony.com/doc/master/cookbook/logging/monolog.html
