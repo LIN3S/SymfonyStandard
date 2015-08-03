@@ -135,6 +135,13 @@ Other possible configurations
 
 **Section under construction**
 
+LIN3S CS
+--------
+https://github.com/LIN3S/CS
+
+**Section under construction**
+
+
 [1]: http://symfony.com/
 [2]: http://lin3s.com
 [3]: https://sonata-project.org/bundles/admin
