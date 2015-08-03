@@ -1859,16 +1859,16 @@
         },
         {
             "name": "lin3s/cs",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LIN3S/CS.git",
-                "reference": "cdbb34eba83c0b6dc0a16d287dc2056dc4a19794"
+                "reference": "c7aa125bbcd01c1d75972fe776c664d81b7bac6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LIN3S/CS/zipball/cdbb34eba83c0b6dc0a16d287dc2056dc4a19794",
-                "reference": "cdbb34eba83c0b6dc0a16d287dc2056dc4a19794",
+                "url": "https://api.github.com/repos/LIN3S/CS/zipball/c7aa125bbcd01c1d75972fe776c664d81b7bac6e",
+                "reference": "c7aa125bbcd01c1d75972fe776c664d81b7bac6e",
                 "shasum": ""
             },
             "require": {
@@ -1898,7 +1898,7 @@
             ],
             "description": "The coding standards in the LIN3S way",
             "homepage": "http://lin3s.com",
-            "time": "2015-08-01 14:41:43"
+            "time": "2015-08-03 11:37:02"
         },
         {
             "name": "lin3s/lin3s-distribution",

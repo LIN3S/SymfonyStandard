@@ -1,52 +1,43 @@
-# Cache and logs (Symfony2)
+# This file is part of the Symfony Standard project.
+#
+# Copyright (c) 2015 LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @author Jon Torrado <jontorrado@gmail.com>
+# @author Beñat Espiña <benatespina@gmail.com>
+
+#### Symfony ####
 /app/cache/*
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
-
-# Cache and logs (Symfony3)
 /var/cache/*
 /var/logs/*
 !var/cache/.gitkeep
 !var/logs/.gitkeep
-
-# Parameters
 /app/config/parameters.yml
 /app/config/parameters.ini
-
-# Managed by Composer
 /app/bootstrap.php.cache
 /var/bootstrap.php.cache
 /bin/*
 !bin/console
 !bin/symfony_requirements
-/vendor/
+/vendor
+/web/bundles
+/web/uploads
+/build
+/web/css
+/web/js
 
-# LIN3S CS
+#### LIN3S ####
 .editorconfig
 .lin3s_cs.yml
 
-# Assets and user uploads
-/web/bundles/
-/web/uploads/
+#### Node.js ####
+/node_modules
+/app/Resources/assets/vendor
 
-# Node
-/node_modules/
-
-# Bower
-/app/Resources/assets/vendor/
-
-# PHPUnit
-/app/phpunit.xml
-/phpunit.xml
-
-# Build data
-/build/
-/web/css/
-/web/js/
-
-# Composer PHAR
+#### Composer #### 
 /composer.phar
-
-# NetBeans stuff
-/nbproject/
