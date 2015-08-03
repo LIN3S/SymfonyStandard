@@ -68,6 +68,13 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+stof_doctrine_extensions:
+    default_locale: "%locale%"
+    orm:
+        default: ~
+    #mongodb:
+    #    default: ~
 
 sonata_block:
     default_contexts: [cms]

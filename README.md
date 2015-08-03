@@ -12,13 +12,14 @@ Symfony doesn't come with:
 2. [SonataUserBundle][4]
  * ToDo
 3. [LiipImagineBundle][5]
-3. Front-end workflow
- * [Sass][6]
- * [Npm][7]
- * [Bower][8]
- * [Gulp.js][9]
-4. [Capistrano][10] deploy
-5. A complete base.html.twig based on [HTML5 Boilerplate][11]
+4. [StofDoctrineExtensions][6]
+5. Front-end workflow
+ * [Sass][7]
+ * [Npm][8]
+ * [Bower][9]
+ * [Gulp.js][10]
+6. [Capistrano][11] deploy
+7. A complete base.html.twig based on [HTML5 Boilerplate][12]
 
 **Section under construction**
 
@@ -27,12 +28,12 @@ Prerequisites
 The above sounds great so now, to start developing with our Symfony Standard, you need the the following
 requirements:
 
-1. [PHP][12] 5.4 or higher
-2. [MySQL][13] or [MongoDB][14]
-3. [Composer][15]: `curl -sS https://getcomposer.org/installer | php`
-4. [Ruby][16]
+1. [PHP][13] 5.4 or higher
+2. [MySQL][14] or [MongoDB][15]
+3. [Composer][16]: `curl -sS https://getcomposer.org/installer | php`
+4. [Ruby][17]
   * Bundler: `gem install bundler`
-5. [Node.js][17]
+5. [Node.js][18]
   * Bower: `npm install -g bower`
   * Gulp.js: `npm install -g gulp`
 
@@ -48,7 +49,7 @@ First of all, you need to **clone the project**:
 $ git clone git@github.com:LIN3S/SymfonyStandard.git <project-name> && cd <project-name>
 ```
 
-Then, *if you use Apache*, you should visit the [Symfony permissions section][18] of the
+Then, *if you use Apache*, you should visit the [Symfony permissions section][19] of the
 installation documentation so your CLI user and Apache user are allowed to write.
 
 After that, just run the following command in order to download the Composer dependencies:
@@ -91,10 +92,10 @@ A complete `app/Resources/views/base.html.twig` file is provided by default.
 Be sure to modify this file and override the meta blocks whenever is needed. Commented
 out you can find usefull examples with the full information links and validators.
 
-We improved the production logs managed by [*monologs*][19]. Edit `app/config/config_prod.yml`
+We improved the production logs managed by [*monologs*][20]. Edit `app/config/config_prod.yml`
 so it suits your needs.
 
-Also, if your development IDE is [PhpStorm][20], uncomment the following line in `app/config/config.yml`:
+Also, if your development IDE is [PhpStorm][21], uncomment the following line in `app/config/config.yml`:
 ```
 framework:
     ide: "phpstorm://open?file=%%f&line=%%1"
@@ -126,23 +127,30 @@ to modify `gulpfile.js` `js:prod` task in order to add what your project needs.
 
 **Section under construction**
 
+Other possible configurations
+-----------------------------
+* For the **StofDoctrineExtensions**, visit the [bundle documentation][6]
+
+**Section under construction**
+
 [1]: http://symfony.com/
 [2]: http://lin3s.com
 [3]: https://sonata-project.org/bundles/admin
 [4]: https://sonata-project.org/bundles/user
 [5]: http://sass-lang.com/
-[6]: https://github.com/liip/LiipImagineBundle
-[7]: https://www.npmjs.com/
-[8]: http://bower.io/
-[9]: http://gulpjs.com/
-[10]: http://capistranorb.com/
-[11]: https://html5boilerplate.com/
-[12]: http://php.net
-[13]: http://dev.mysql.com/downloads/
-[14]: https://www.mongodb.org/
-[15]: https://getcomposer.org/
-[16]: https://www.ruby-lang.org/en/downloads/
-[17]: https://nodejs.org/download/
-[18]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
-[19]: http://symfony.com/doc/master/cookbook/logging/monolog.html
-[20]: https://www.jetbrains.com/phpstorm/
+[6]: https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst
+[7]: https://github.com/liip/LiipImagineBundle
+[8]: https://www.npmjs.com/
+[9]: http://bower.io/
+[10]: http://gulpjs.com/
+[11]: http://capistranorb.com/
+[12]: https://html5boilerplate.com/
+[13]: http://php.net
+[14]: http://dev.mysql.com/downloads/
+[15]: https://www.mongodb.org/
+[16]: https://getcomposer.org/
+[17]: https://www.ruby-lang.org/en/downloads/
+[18]: https://nodejs.org/download/
+[19]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
+[20]: http://symfony.com/doc/master/cookbook/logging/monolog.html
+[21]: https://www.jetbrains.com/phpstorm/
