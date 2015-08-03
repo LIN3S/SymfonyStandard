@@ -14,10 +14,20 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+ * Default controller class.
+ *
+ * @author Jon Torrado <jontorrado@gmail.com>
+ * @author Beñat Espiña <benatespina@gmail.com>
+ */
 class DefaultController extends Controller
 {
     /**
+     * Index action.
+     *
      * @Route("/app/example", name="homepage")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {

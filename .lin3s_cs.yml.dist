@@ -1,4 +1,4 @@
-# This file is part of the CS library.
+# This file is part of the Symfony Foundation library.
 #
 # Copyright (c) 2015 LIN3S <info@lin3s.com>
 #
@@ -8,7 +8,7 @@
 # @author Beñat Espiña <benatespina@gmail.com>
 
 parameters:
-    name: CHANGE-FOR-YOUR-AWESOME-NAME
+    name: CHANGE-FOR-YOUR-AWESOME-SYMFONY-PROJECT-NAME
     type: project
     year: 2015
     author: LIN3S
@@ -19,8 +19,8 @@ parameters:
     phpmd_rules:
         - controversial
         - unusedcode
-        - codesize
-        - naming
+        # - codesize
+        # - naming
 
     phpformatter_path: src
 
