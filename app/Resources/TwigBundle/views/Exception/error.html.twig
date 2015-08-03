@@ -1,0 +1,18 @@
+{# app/Resources/TwigBundle/views/Exception/error.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Internal Server Error</h1>
+
+    {# example security usage, see below #}
+    {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
+        {# ... #}
+    {% endif %}
+
+    <p>
+        The server encountered an internal error or misconfiguration and was
+        unable to complete your request. Please contact the administrator and
+        inform them of the time the error occurred, and anything you might have
+        done that may have caused the error.
+    </p>
+{% endblock %}
