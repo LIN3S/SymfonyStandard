@@ -120,6 +120,9 @@ fos_user:
 
 sonata_user:
     manager_type: orm # can be orm or mongodb
+    admin:
+        user:
+            class: Application\Sonata\UserBundle\Admin\UserAdmin
 
 sonata_block:
     blocks:
