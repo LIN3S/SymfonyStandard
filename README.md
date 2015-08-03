@@ -11,15 +11,16 @@ Symfony doesn't come with:
 1. [SonataAdminBundle][3]
 2. [SonataUserBundle][4]
  * ToDo
-3. [LiipImagineBundle][5]
-4. [StofDoctrineExtensions][6]
+3. [Doctrine Migrations][5]
+3. [LiipImagineBundle][6]
+4. [StofDoctrineExtensions][7]
 5. Front-end workflow
- * [Sass][7]
- * [Npm][8]
- * [Bower][9]
- * [Gulp.js][10]
-6. [Capistrano][11] deploy
-7. A complete base.html.twig based on [HTML5 Boilerplate][12]
+ * [Sass][8]
+ * [Npm][9]
+ * [Bower][10]
+ * [Gulp.js][11]
+6. [Capistrano][12] deploy
+7. A complete base.html.twig based on [HTML5 Boilerplate][13]
 
 **Section under construction**
 
@@ -28,12 +29,12 @@ Prerequisites
 The above sounds great so now, to start developing with our Symfony Standard, you need the the following
 requirements:
 
-1. [PHP][13] 5.4 or higher
-2. [MySQL][14] or [MongoDB][15]
-3. [Composer][16]: `curl -sS https://getcomposer.org/installer | php`
-4. [Ruby][17]
+1. [PHP][14] 5.4 or higher
+2. [MySQL][15] or [MongoDB][16]
+3. [Composer][17]: `curl -sS https://getcomposer.org/installer | php`
+4. [Ruby][18]
   * Bundler: `gem install bundler`
-5. [Node.js][18]
+5. [Node.js][19]
   * Bower: `npm install -g bower`
   * Gulp.js: `npm install -g gulp`
 
@@ -49,7 +50,7 @@ First of all, you need to **clone the project**:
 $ git clone git@github.com:LIN3S/SymfonyStandard.git <project-name> && cd <project-name>
 ```
 
-Then, *if you use Apache*, you should visit the [Symfony permissions section][19] of the
+Then, *if you use Apache*, you should visit the [Symfony permissions section][20] of the
 installation documentation so your CLI user and Apache user are allowed to write.
 
 After that, just run the following command in order to download the Composer dependencies:
@@ -92,10 +93,10 @@ A complete `app/Resources/views/base.html.twig` file is provided by default.
 Be sure to modify this file and override the meta blocks whenever is needed. Commented
 out you can find usefull examples with the full information links and validators.
 
-We improved the production logs managed by [*monologs*][20]. Edit `app/config/config_prod.yml`
+We improved the production logs managed by [*monologs*][21]. Edit `app/config/config_prod.yml`
 so it suits your needs.
 
-Also, if your development IDE is [PhpStorm][21], uncomment the following line in `app/config/config.yml`:
+Also, if your development IDE is [PhpStorm][22], uncomment the following line in `app/config/config.yml`:
 ```
 framework:
     ide: "phpstorm://open?file=%%f&line=%%1"
@@ -129,7 +130,8 @@ to modify `gulpfile.js` `js:prod` task in order to add what your project needs.
 
 Other possible configurations
 -----------------------------
-* For the **StofDoctrineExtensions**, visit the [bundle documentation][6]
+* For the **DoctrineMigrationsBundle**, visit the [bundle documentation][5]
+* For the **StofDoctrineExtensions**, visit the [bundle documentation][7]
 
 **Section under construction**
 
@@ -138,19 +140,20 @@ Other possible configurations
 [3]: https://sonata-project.org/bundles/admin
 [4]: https://sonata-project.org/bundles/user
 [5]: http://sass-lang.com/
-[6]: https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst
-[7]: https://github.com/liip/LiipImagineBundle
-[8]: https://www.npmjs.com/
-[9]: http://bower.io/
-[10]: http://gulpjs.com/
-[11]: http://capistranorb.com/
-[12]: https://html5boilerplate.com/
-[13]: http://php.net
-[14]: http://dev.mysql.com/downloads/
-[15]: https://www.mongodb.org/
-[16]: https://getcomposer.org/
-[17]: https://www.ruby-lang.org/en/downloads/
-[18]: https://nodejs.org/download/
-[19]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
-[20]: http://symfony.com/doc/master/cookbook/logging/monolog.html
-[21]: https://www.jetbrains.com/phpstorm/
+[6]: https://symfony.com/doc/master/bundles/DoctrineMigrationsBundle/index.html
+[7]: https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst
+[8]: https://github.com/liip/LiipImagineBundle
+[9]: https://www.npmjs.com/
+[10]: http://bower.io/
+[11]: http://gulpjs.com/
+[12]: http://capistranorb.com/
+[13]: https://html5boilerplate.com/
+[14]: http://php.net
+[15]: http://dev.mysql.com/downloads/
+[16]: https://www.mongodb.org/
+[17]: https://getcomposer.org/
+[18]: https://www.ruby-lang.org/en/downloads/
+[19]: https://nodejs.org/download/
+[20]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
+[21]: http://symfony.com/doc/master/cookbook/logging/monolog.html
+[22]: https://www.jetbrains.com/phpstorm/

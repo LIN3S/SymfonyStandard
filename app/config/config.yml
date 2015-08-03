@@ -69,6 +69,27 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
     
+# Doctrine Migrations Configuration
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/DoctrineMigrations"
+    namespace: Application\Migrations
+    table_name: migration_versions
+    name: Application Migrations
+
+# LiipImagine Configuration
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        #thumb_example:
+        #    quality: 75
+        #    filters:
+        #        thumbnail: { size: [120, 90], mode: outbound }
+    
+# StofDoctrineExtensions Configuration
 stof_doctrine_extensions:
     default_locale: "%locale%"
     orm:
@@ -76,6 +97,7 @@ stof_doctrine_extensions:
     #mongodb:
     #    default: ~
 
+# Sonata Admin & User Configuration
 sonata_block:
     default_contexts: [cms]
     blocks:
@@ -100,15 +122,3 @@ sonata_block:
         sonata.user.block.menu:    # used to display the menu in profile pages
         sonata.user.block.account: # used to display menu option (login option)
         sonata.block.service.text: # used to if you plan to use Sonata user routes
-
-liip_imagine:
-    resolvers:
-       default:
-          web_path: ~
-
-    filter_sets:
-        cache: ~
-        #thumb_example:
-        #    quality: 75
-        #    filters:
-        #        thumbnail: { size: [120, 90], mode: outbound }
