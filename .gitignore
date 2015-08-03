@@ -22,6 +22,10 @@
 !bin/symfony_requirements
 /vendor/
 
+# LIN3S CS
+.editorconfig
+.lin3s_cs.yml
+
 # Assets and user uploads
 /web/bundles/
 /web/uploads/
