@@ -60,3 +60,5 @@ gulp.task('watch', function () {
   gulp.watch(paths.sass + '/**/*.scss', ['sass']);
   gulp.watch(paths.js + '/**/*.js', ['js:prod']);
 });
+
+gulp.task('prod', ['sass', 'js:prod']);
