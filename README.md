@@ -1,6 +1,13 @@
 Symfony Standard
 ===========================
-The "Symfony Standard" distribution in the LIN3S way.
+> The "Symfony Standard" distribution in the LIN3S way.
+
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/00c67aae-3f52-419b-93df-751050299dcb/mini.png)](https://insight.sensiolabs.com/projects/00c67aae-3f52-419b-93df-751050299dcb)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/LIN3S/SymfonyStandard/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/LIN3S/SymfonyStandard/?branch=master)
+[![Total Downloads](https://poser.pugx.org/lin3s/symfony-standard/downloads)](https://packagist.org/packages/lin3s/symfony-standard)
+&nbsp;&nbsp;&nbsp;&nbsp;
+[![Latest Stable Version](https://poser.pugx.org/lin3s/symfony-standard/v/stable.svg)](https://packagist.org/packages/lin3s/symfony-standard)
+[![Latest Unstable Version](https://poser.pugx.org/lin3s/symfony-standard/v/unstable.svg)](https://packagist.org/packages/lin3s/symfony-standard)
 
 Why?
 ----
@@ -38,8 +45,6 @@ requirements:
   * Bower: `npm install -g bower`
   * Gulp.js: `npm install -g gulp`
 
-**Section under construction**
-
 Getting Started
 ---------------
 After installing all the prerequisites, to create a Symfony project based on this *Symfony Standard*,
@@ -47,26 +52,25 @@ you should follow these steps.
 
 First of all, you need to **clone the project**:
 ```
-$ git clone git@github.com:LIN3S/SymfonyStandard.git <project-name> && cd <project-name>
+$ composer create-project lin3s/symfony-standard <project-name> && cd <project-name>
 ```
+
+> If your `app/config/parameters.yml` file was not created right after finishing the composer process,
+the system will ask you some questions in order to create the needed file. If you want to
+create it by hand, just copy the *app/config/parameters.yml.dist* file:
+`$ cp app/config/parameters.yml.dist app/config/parameters.yml`
+
+> If the process fails as soon as it finishes, it's because the database is not created. Run
+`php app/console doctrine:database:create` in order to create it.
 
 Then, *if you use Apache*, you should visit the [Symfony permissions section][20] of the
 installation documentation so your CLI user and Apache user are allowed to write.
 
-After that, just run the following command in order to download the Composer dependencies:
+Because our proposal is create a new Symfony project on top of this, you should **remove
+`.git` folder and create a new git repo** for your new awesome Symfony project:
 ```
-$ composer install
+$ rm -Rf .git && git init
 ```
-
-If your *parameters.yml* file was not created, right after finishing the composer process,
-the system will ask you some questions in order to create the needed file. If you want to
-create it by hand, just copy the *app/config/parameters.yml.dist* file:
-```
-$ cp app/config/parameters.yml.dist app/config/parameters.yml
-```
-
-It may fail as soon as it finishes, just because the database is not created. Run
-`php app/console doctrine:database:create` in order to create it.
 
 If you are willing to use LiipImagineBundle, create the needed folder
 ```
@@ -90,7 +94,7 @@ $ php app/console server:run
 Access to your admin panel by going to `<domain>/admin`
 
 A complete `app/Resources/views/base.html.twig` file is provided by default.
-Be sure to modify this file and override the meta blocks whenever is needed. Commented
+Be sure to modify this file and override the meta blocks whenever it's needed. Commented
 out you can find usefull examples with the full information links and validators.
 
 We improved the production logs managed by [*monologs*][21]. Edit `app/config/config_prod.yml`
@@ -121,6 +125,7 @@ After this initial step, you will have the following gulp tasks available:
 * `gulp scsslint`: it helps you to keep your SCSS files clean and readable.
 * `gulp watch`: check modifications within the `app/Resources/assets/scss/` and p`app/Reources/assets/js/` folders in order to compile again.
 * `gulp js:prod`: combines and minifies the needed JS files.
+* `gulp prod`: executes sass and js:prod tasks.
 
 As you see, create and/or edit .scss files within the `app/Resources/assets/scss/` folder. An
 initial structure is already given for you. You can also add/or edit .js files, but **remember**
@@ -135,12 +140,30 @@ Other possible configurations
 
 **Section under construction**
 
+Deploy
+------
+To automatize the deploy process this project is using **Capistrano** with **capistrano-symfony** plugin.
+You can find the whole configuration within the `config` directory. Customize deploy tasks modifying the `config/deploy.rb` file.
+
+You should update the *symfony-standard* application name for your awesome project name and the repo url with your
+project git url.
+
+Inside `config/deploy` directory there are two files that can be considered as pre-production stage and production stage.
+There is no logic, these files only contain few parameters that you should customize for your proper deployment.
+
+After all, and following the Capistrano [documentation][11] to configure the server, you can deploy executing:
+```
+$ cap <stage> deploy    # <stage> can be dev1, prod or whatever file inside deploy directory
+```
+
+> In the Capistrano shared directory you should create the `app/config/parameters.yml` file, `app/logs` folder
+and `web/uploads` folder.
+
 LIN3S CS
 --------
 https://github.com/LIN3S/CS
 
 **Section under construction**
-
 
 [1]: http://symfony.com/
 [2]: http://lin3s.com
