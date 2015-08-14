@@ -34,7 +34,7 @@ framework:
         save_path: "%kernel.root_dir%/sessions"
     fragments:       ~
     http_method_override: true
-    #ide: "phpstorm://open?file=%%f&line=%%1"
+    #ide: "phpstorm://open?file=%%f&line=%%l"
 
 # Twig Configuration
 twig:
