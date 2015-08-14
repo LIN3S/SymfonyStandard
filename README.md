@@ -1,5 +1,4 @@
-Symfony Standard
-===========================
+# Symfony Standard
 > The "Symfony Standard" distribution in the LIN3S way.
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/00c67aae-3f52-419b-93df-751050299dcb/mini.png)](https://insight.sensiolabs.com/projects/00c67aae-3f52-419b-93df-751050299dcb)
@@ -9,8 +8,7 @@ Symfony Standard
 [![Latest Stable Version](https://poser.pugx.org/lin3s/symfony-standard/v/stable.svg)](https://packagist.org/packages/lin3s/symfony-standard)
 [![Latest Unstable Version](https://poser.pugx.org/lin3s/symfony-standard/v/unstable.svg)](https://packagist.org/packages/lin3s/symfony-standard)
 
-Why?
-----
+## Why?
 [**Symfony**][1] Symfony is a set of reusable PHP components and a PHP framework for web projects. In
 [*LIN3S*][2] we implement this solution providing some useful features that the standard edition of
 Symfony doesn't come with:
@@ -28,13 +26,12 @@ Symfony doesn't come with:
  * [Gulp.js][11]
 6. [Capistrano][12] deploy
 7. A complete base.html.twig based on [HTML5 Boilerplate][13]
+8. As dev dependency, [Doctrine Fixtures][23]
 
 **Section under construction**
 
-Prerequisites
--------------
-The above sounds great so now, to start developing with our Symfony Standard, you need the the following
-requirements:
+## Prerequisites
+The above sounds great so, now, to start developing with our Symfony Standard, you need the following requirements:
 
 1. [PHP][14] 5.4 or higher
 2. [MySQL][15] or [MongoDB][16]
@@ -45,42 +42,41 @@ requirements:
   * Bower: `npm install -g bower`
   * Gulp.js: `npm install -g gulp`
 
-Getting Started
----------------
-After installing all the prerequisites, to create a Symfony project based on this *Symfony Standard*,
-you should follow these steps.
+## Getting Started
+After installing all the prerequisites, to create a Symfony project based on this *Symfony Standard*, you should
+follow these steps.
 
 First of all, you need to **clone the project**:
 ```
 $ composer create-project lin3s/symfony-standard <project-name> && cd <project-name>
 ```
 
-> If your `app/config/parameters.yml` file was not created right after finishing the composer process,
-the system will ask you some questions in order to create the needed file. If you want to
-create it by hand, just copy the *app/config/parameters.yml.dist* file:
+> If your `app/config/parameters.yml` file was not created right after finishing the composer process, the system
+will ask you some questions in order to create the needed file. If you want to create it by hand, just copy the
+*app/config/parameters.yml.dist* file:
 `$ cp app/config/parameters.yml.dist app/config/parameters.yml`
 
 > If the process fails as soon as it finishes, it's because the database is not created. Run
 `php app/console doctrine:database:create` in order to create it.
 
-Then, *if you use Apache*, you should visit the [Symfony permissions section][20] of the
-installation documentation so your CLI user and Apache user are allowed to write.
-
-Because our proposal is create a new Symfony project on top of this, you should **remove
-`.git` folder and create a new git repo** for your new awesome Symfony project:
-```
-$ rm -Rf .git && git init
-```
+Then, *if you use a web server*, you should visit the [Symfony permissions section][20] of the installation
+documentation so your CLI user and web server user are allowed to write.
 
 If you are willing to use LiipImagineBundle, create the needed folder
 ```
 $ mkdir -p web/media/cache
 ```
-You can modify this path editing the `cache` parameter in the liip_imagine section
-within the `app/config/config.yml` file. Also remember to give this folder the right
-permissions so the web server is allowed to write.
 
-If you want to create an admin user, follow these steps:
+You can modify this path editing the `cache` parameter in the `liip_imagine` section within the `app/config/config.yml`
+file. Also remember to give this folder the right permissions so the web server is allowed to write.
+
+If you want to load some default users, run the following command in order to create an *admin/admin* account and 50
+fake users:
+```
+$ php app/console doctrine:fixtures:load
+```
+
+Also, if you want to create an admin user by hand, follow these steps:
 ```
 $ php app/console fos:user:create
 $ php app/console fos:user:promote --> give the ROLE_SUPER_ADMIN permission
@@ -103,13 +99,12 @@ so it suits your needs.
 Also, if your development IDE is [PhpStorm][22], uncomment the following line in `app/config/config.yml`:
 ```
 framework:
-    ide: "phpstorm://open?file=%%f&line=%%1"
+    ide: "phpstorm://open?file=%%f&line=%%l"
 ```
 
 **Section under construction**
 
-Front-end workflow
-------------------
+## Front-end workflow
 
 First of all, download all the dependencies needed, for Ruby, bower and Node.js:
 ```
@@ -127,26 +122,24 @@ After this initial step, you will have the following gulp tasks available:
 * `gulp js:prod`: combines and minifies the needed JS files.
 * `gulp prod`: executes sass and js:prod tasks.
 
-As you see, create and/or edit .scss files within the `app/Resources/assets/scss/` folder. An
-initial structure is already given for you. You can also add/or edit .js files, but **remember**
-to modify `gulpfile.js` `js:prod` task in order to add what your project needs.
+As you see, create and/or edit .scss files within the `app/Resources/assets/scss/` folder. An initial structure is
+already given for you. You can also add/or edit .js files, but **remember** to modify `gulpfile.js` `js:prod` tasks in
+order to add what your project needs.
 
 **Section under construction**
 
-Other possible configurations
------------------------------
+## Other possible configurations
 * For the **DoctrineMigrationsBundle**, visit the [bundle documentation][5]
 * For the **StofDoctrineExtensions**, visit the [bundle documentation][7]
 
 **Section under construction**
 
-Deploy
-------
-To automatize the deploy process this project is using **Capistrano** with **capistrano-symfony** plugin.
-You can find the whole configuration within the `config` directory. Customize deploy tasks modifying the `config/deploy.rb` file.
+## Deployment
+To automatize the deployment process this project is using **Capistrano** with **capistrano-symfony** plugin. You can
+find the whole configuration within the `config` directory. Customize deploy tasks modifying the `config/deploy.rb` file.
 
 You should update the *symfony-standard* application name for your awesome project name and the repo url with your
-project git url.
+git project url.
 
 Inside `config/deploy` directory there are two files that can be considered as pre-production stage and production stage.
 There is no logic, these files only contain few parameters that you should customize for your proper deployment.
@@ -156,11 +149,10 @@ After all, and following the Capistrano [documentation][11] to configure the ser
 $ cap <stage> deploy    # <stage> can be dev1, prod or whatever file inside deploy directory
 ```
 
-> In the Capistrano shared directory you should create the `app/config/parameters.yml` file, `app/logs` folder
-and `web/uploads` folder.
+> In the Capistrano shared directory you should create the `app/config/parameters.yml` file, `app/logs`, `app/sessions`
+and `web/uploads` folder should be created for you.
 
-LIN3S CS
---------
+## LIN3S CS
 https://github.com/LIN3S/CS
 
 **Section under construction**
@@ -187,3 +179,4 @@ https://github.com/LIN3S/CS
 [20]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
 [21]: http://symfony.com/doc/master/cookbook/logging/monolog.html
 [22]: https://www.jetbrains.com/phpstorm/
+[23]: http://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html

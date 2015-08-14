@@ -11,12 +11,16 @@
 #### Symfony ####
 /app/cache/*
 /app/logs/*
+/app/sessions/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
+!app/sessions/.gitkeep
 /var/cache/*
 /var/logs/*
+/var/sessions/*
 !var/cache/.gitkeep
 !var/logs/.gitkeep
+!var/sessions/.gitkeep
 /app/config/parameters.yml
 /app/config/parameters.ini
 /app/bootstrap.php.cache
