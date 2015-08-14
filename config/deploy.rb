@@ -11,9 +11,10 @@
 # Setup project
 ############################################
 
-set :application, "symfony-standard"
-set :repo_url, "https://github.com/LIN3S/SymfonyStandard.git"
-set :scm, :git
+set :application,   "symfony-standard"
+set :repo_url,      "https://github.com/LIN3S/SymfonyStandard.git"
+set :scm,           :git
+set :sessions_path, fetch(:app_path) + "/sessions"
 
 ############################################
 # Setup Capistrano
@@ -32,8 +33,8 @@ set :keep_releases, 3
 # Linked files and directories (symlinks)
 ############################################
 
-set :linked_files, ["app/config/parameters.yml"]
-set :linked_dirs, [fetch(:log_path), fetch(:web_path) + "/uploads"]
+set :linked_files,           ["app/config/parameters.yml"]
+set :linked_dirs,            [fetch(:log_path), fetch(:web_path) + "/uploads"]
 set :file_permissions_paths, [fetch(:log_path), fetch(:cache_path)]
 
 set :composer_install_flags, '--no-interaction --optimize-autoloader'
