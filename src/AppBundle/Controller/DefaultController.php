@@ -11,6 +11,7 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -26,6 +27,7 @@ class DefaultController extends Controller
      * Index action.
      *
      * @Route("/app/example", name="homepage")
+     * @Method("GET")
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
