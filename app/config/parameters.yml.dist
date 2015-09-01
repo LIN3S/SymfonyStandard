@@ -24,7 +24,7 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
 
-    secret:            ThisTokenIsNotSoSecretChangeIt # A secret key that's used to generate certain security-related tokens
+    secret:            946672a831b47e20ec70435c92ebd586be6cb4af # A secret key that's used to generate certain security-related tokens
 
     # Generate URLs and Send Emails from the Console http://symfony.com/doc/current/cookbook/console/sending_emails.html
     router.request_context.host:     example.org
