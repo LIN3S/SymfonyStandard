@@ -59,8 +59,10 @@ will ask you some questions in order to create the needed file. If you want to c
 > If the process fails as soon as it finishes, it's because the database is not created. Run
 `php app/console doctrine:database:create` in order to create it.
 
-Then, *if you use a web server*, you should visit the [Symfony permissions section][20] of the installation
-documentation so your CLI user and web server user are allowed to write.
+After that, *if you use a web server*, you should visit the [Symfony permissions section][20] of the installation
+documentation so your CLI user and web server user are allowed to write. Also, if you are using Apache web server,
+consider renaming `.htaccess.dist` files located within `app`, `src` and `web` folders to `.htaccess` or create the
+proper server configuration to improve global performances.
 
 If you are willing to use LiipImagineBundle, create the needed folder
 ```
