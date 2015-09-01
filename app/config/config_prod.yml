@@ -36,11 +36,11 @@ monolog:
             channels: "!event"
         console:
             type:  console
-        login:
-            type:               stream
-            path:               "%kernel.logs_dir%/auth.log"
-            level:              info
-            channels:           security
+        #login:
+        #    type:               stream
+        #    path:               "%kernel.logs_dir%/auth.log"
+        #    level:              info
+        #    channels:           security
         #mail:
         #    type:         fingers_crossed
         #    action_level: critical
