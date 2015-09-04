@@ -34,8 +34,8 @@ set :keep_releases, 3
 ############################################
 
 set :linked_files,           ["app/config/parameters.yml"]
-set :linked_dirs,            [fetch(:log_path), fetch(:web_path) + "/uploads"]
-set :file_permissions_paths, [fetch(:log_path), fetch(:cache_path)]
+set :linked_dirs,            [fetch(:log_path), fetch(:sessions_path), fetch(:web_path) + "/uploads"]
+set :file_permissions_paths, [fetch(:cache_path), fetch(:log_path), fetch(:sessions_path)]
 
 set :composer_install_flags, '--no-interaction --optimize-autoloader'
 
@@ -70,8 +70,8 @@ namespace :compile_and_upload do
   task :upload do
     if fetch(:env) == "prod"
       on roles(:all) do |host|
-        upload! "#{fetch(:web_path)}/css", "#{release_path}/#{fetch(:web_name)}/css", recursive: true
-        upload! "#{fetch(:web_path)}/js", "#{release_path}/#{fetch(:web_name)}/js", recursive: true
+        upload! "#{fetch(:web_path)}/css", "#{release_path}/#{fetch(:web_name)}", recursive: true
+        upload! "#{fetch(:web_path)}/js", "#{release_path}/#{fetch(:web_name)}", recursive: true
       end
     end
   end
