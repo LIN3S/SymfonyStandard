@@ -3,6 +3,6 @@
   "author": "LIN3S",
   "license": "MIT",
   "dependencies": {
-    "foundation": "zurb/bower-foundation"
+    "foundation": "~5.5"
   }
 }
