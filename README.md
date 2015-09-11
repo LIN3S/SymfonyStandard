@@ -26,6 +26,8 @@ this solution providing some useful features that the standard edition of Symfon
 6. [Capistrano][12] deploy
 7. A complete base.html.twig based on [HTML5 Boilerplate][13]
 8. As dev dependency, [Doctrine Fixtures][23]
+9. [SymfonyFoundation][24] made by LIN3S
+10. [Coding standards library][25] made by LIN3S
 
 **Section under construction**
 
@@ -107,7 +109,6 @@ framework:
 **Section under construction**
 
 ## Front-end workflow
-
 First of all, download all the dependencies needed, for Ruby, bower and Node.js:
 ```
 $ bundle install
@@ -154,11 +155,6 @@ $ cap <stage> deploy    # <stage> can be dev1, prod or whatever file inside depl
 > In the Capistrano shared directory you should create the `app/config/parameters.yml` file, `app/logs`, `app/sessions`
 and `web/uploads` folder should be created for you.
 
-## LIN3S CS
-https://github.com/LIN3S/CS
-
-**Section under construction**
-
 [1]: http://symfony.com/
 [2]: http://lin3s.com
 [3]: https://sonata-project.org/bundles/admin
@@ -182,3 +178,5 @@ https://github.com/LIN3S/CS
 [21]: http://symfony.com/doc/master/cookbook/logging/monolog.html
 [22]: https://www.jetbrains.com/phpstorm/
 [23]: http://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
+[24]: https://github.com/LIN3S/SymfonyFoundation
+[25]: https://github.com/LIN3S/CS

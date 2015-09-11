@@ -5,21 +5,22 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- * 
+ *
  * @author Jon Torrado <jontorrado@gmail.com>
+ * @author Beñat Espiña <benatespina@gmail.com>
  */
 
 'use strict';
 
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    rename = require('gulp-rename'),
-    minifycss = require('gulp-minify-css'),
-    scsslint = require('gulp-scss-lint'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify');
-    
+  sass = require('gulp-sass'),
+  autoprefixer = require('gulp-autoprefixer'),
+  rename = require('gulp-rename'),
+  minifycss = require('gulp-minify-css'),
+  scsslint = require('gulp-scss-lint'),
+  concat = require('gulp-concat'),
+  uglify = require('gulp-uglify');
+
 var paths = {
   sass: './app/Resources/assets/scss',
   css: './web/css',
@@ -29,7 +30,7 @@ var paths = {
 };
 
 gulp.task('sass', ['scsslint'], function () {
-  gulp.src(paths.sass  + '/app.scss')
+  gulp.src(paths.sass + '/app.scss')
     .pipe(sass({
       errLogToConsole: true
     }))
@@ -42,18 +43,18 @@ gulp.task('sass', ['scsslint'], function () {
 
 gulp.task('scsslint', function () {
   gulp.src(paths.sass + '/**/*.scss')
-    .pipe(scsslint());
+    .pipe(scsslint('./scss_lint.yml'));
 });
 
 gulp.task('js:prod', function () {
   gulp.src([
-      paths.vendor + '/foundation/js/vendor/jquery.js',
-      paths.vendor + '/foundation/js/foundation.js',
-      paths.js + '/**/*.js'
+    paths.vendor + '/foundation/js/vendor/jquery.js',
+    paths.vendor + '/foundation/js/foundation.js',
+    paths.js + '/**/*.js'
   ])
-  .pipe(concat('app.min.js'))
-  .pipe(uglify())
-  .pipe(gulp.dest(paths.buildJs));
+    .pipe(concat('app.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.buildJs));
 });
 
 gulp.task('watch', function () {

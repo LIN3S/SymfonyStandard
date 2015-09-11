@@ -55,10 +55,11 @@
             "SymfonyStandard\\Composer::hookRootPackageInstall"
         ],
         "post-install-cmd": [
+            "LIN3S\\Distribution\\Composer\\Wordpress::installRequiredFiles",
             "LIN3S\\CS\\Composer\\Hooks::buildDistFile",
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "LIN3S\\CS\\Composer\\Hooks::addHooks",
-            "LIN3S\\CS\\Composer\\Hooks::symlinkEditorConfig",
+            "LIN3S\\CS\\Composer\\Hooks::addFiles",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
@@ -67,10 +68,11 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-update-cmd": [
+            "LIN3S\\Distribution\\Composer\\Wordpress::installRequiredFiles",
             "LIN3S\\CS\\Composer\\Hooks::buildDistFile",
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "LIN3S\\CS\\Composer\\Hooks::addHooks",
-            "LIN3S\\CS\\Composer\\Hooks::symlinkEditorConfig",
+            "LIN3S\\CS\\Composer\\Hooks::addFiles",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
