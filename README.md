@@ -9,9 +9,8 @@
 [![Latest Unstable Version](https://poser.pugx.org/lin3s/symfony-standard/v/unstable.svg)](https://packagist.org/packages/lin3s/symfony-standard)
 
 ## Why?
-[**Symfony**][1] Symfony is a set of reusable PHP components and a PHP framework for web projects. In
-[*LIN3S*][2] we implement this solution providing some useful features that the standard edition of
-Symfony doesn't come with:
+[**Symfony**][1] is a set of reusable PHP components and a PHP framework for web projects. In [*LIN3S*][2] we implement
+this solution providing some useful features that the standard edition of Symfony doesn't come with:
 
 1. [SonataAdminBundle][3]
 2. [SonataUserBundle][4]
@@ -31,7 +30,8 @@ Symfony doesn't come with:
 **Section under construction**
 
 ## Prerequisites
-The above sounds great so, now, to start developing with our Symfony Standard, you need the following requirements:
+The above sounds great so, now, to start developing with our Symfony Standard, you need to meet the following
+requirements:
 
 1. [PHP][14] 5.4 or higher
 2. [MySQL][15] or [MongoDB][16]
