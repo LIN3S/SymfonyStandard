@@ -58,8 +58,9 @@ will ask you some questions in order to create the needed file. If you want to c
 *app/config/parameters.yml.dist* file:
 `$ cp app/config/parameters.yml.dist app/config/parameters.yml`
 
-> If the process fails as soon as it finishes, it's because the database is not created. Run
-`php app/console doctrine:database:create` in order to create it.
+> If the process fails as soon as it finishes, it's because the database is not created yet. Run
+`php app/console doctrine:database:create` in order to create it and the create the needed tables with
+`php app/console doctrine:migrations:migrate --no-interaction` command.
 
 After that, *if you use a web server*, you should visit the [Symfony permissions section][20] of the installation
 documentation so your CLI user and web server user are allowed to write. Also, if you are using Apache web server,
@@ -93,9 +94,9 @@ $ php app/console server:run
 
 Access to your admin panel by going to `<domain>/admin`
 
-A complete `app/Resources/views/base.html.twig` file is provided by default.
-Be sure to modify this file and override the meta blocks whenever it's needed. Commented
-out you can find usefull examples with the full information links and validators.
+A complete `app/Resources/views/base.html.twig` file is provided by default. Be sure to modify this file and override
+the meta blocks whenever it's needed. Commented out you can find usefull examples with the full information links and
+validators.
 
 We improved the production logs managed by [*monologs*][21]. Edit `app/config/config_prod.yml`
 so it suits your needs.
@@ -133,6 +134,8 @@ order to add what your project needs.
 
 ## Other possible configurations
 * For the **DoctrineMigrationsBundle**, visit the [bundle documentation][5]
+** **TIP**: just run `php app/console doctrine:migrations:generate`, review the generated file and push it to your SCM
+before running the deploy.
 * For the **StofDoctrineExtensions**, visit the [bundle documentation][7]
 
 **Section under construction**
@@ -142,7 +145,7 @@ To automatize the deployment process this project is using **Capistrano** with *
 find the whole configuration within the `deploy` directory. Customize deploy tasks modifying the `deploy/deploy.rb` file.
 
 You should update the *symfony-standard* application name for your awesome project name and the repo url with your
-git project url.
+Git project url.
 
 Inside `deploy/stages` directory there are two files that can be considered as pre-production stage and production stage.
 There is no logic, these files only contain few parameters that you should customize for your proper deployment.
