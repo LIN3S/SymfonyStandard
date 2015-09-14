@@ -1,7 +1,6 @@
 {
   "name": "symfony-standard",
   "author": "LIN3S",
-  "license": "MIT",
   "dependencies": {
     "foundation": "~5.5"
   }
