@@ -139,17 +139,17 @@ order to add what your project needs.
 
 ## Deployment
 To automatize the deployment process this project is using **Capistrano** with **capistrano-symfony** plugin. You can
-find the whole configuration within the `config` directory. Customize deploy tasks modifying the `config/deploy.rb` file.
+find the whole configuration within the `deploy` directory. Customize deploy tasks modifying the `deploy/deploy.rb` file.
 
 You should update the *symfony-standard* application name for your awesome project name and the repo url with your
 git project url.
 
-Inside `config/deploy` directory there are two files that can be considered as pre-production stage and production stage.
+Inside `deploy/stages` directory there are two files that can be considered as pre-production stage and production stage.
 There is no logic, these files only contain few parameters that you should customize for your proper deployment.
 
 After all, and following the Capistrano [documentation][11] to configure the server, you can deploy executing:
 ```
-$ cap <stage> deploy    # <stage> can be dev1, prod or whatever file inside deploy directory
+$ cap <stage> deploy    # <stage> can be dev1, prod or whatever file inside stages directory
 ```
 
 > In the Capistrano shared directory you should create the `app/config/parameters.yml` file, `app/logs`, `app/sessions`
