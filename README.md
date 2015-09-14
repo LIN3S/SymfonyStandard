@@ -134,7 +134,7 @@ order to add what your project needs.
 
 ## Other possible configurations
 * For the **DoctrineMigrationsBundle**, visit the [bundle documentation][5]
-** **TIP**: just run `php app/console doctrine:migrations:generate`, review the generated file and push it to your SCM
+  * **TIP**: just run `php app/console doctrine:migrations:generate`, review the generated file and push it to your SCM
 before running the deploy.
 * For the **StofDoctrineExtensions**, visit the [bundle documentation][7]
 
