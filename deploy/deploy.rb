@@ -39,9 +39,10 @@ set :file_permissions_paths, [fetch(:cache_path), fetch(:log_path), fetch(:sessi
 
 set :composer_install_flags, '--no-interaction --optimize-autoloader'
 
-namespace :compile_and_upload do
-
-  desc 'Compile and upload'
+namespace :tasks do
+  task :migrate do
+    invoke 'symfony:console', 'doctrine:migrations:migrate', '--no-interaction'
+  end
 
   task :bower do
     if fetch(:env) == "prod"
@@ -78,8 +79,9 @@ namespace :compile_and_upload do
 end
 
 namespace :deploy do
-  after :updated, 'composer:install_executable'
-  after :updated, 'compile_and_upload:bower'
-  after :updated, 'compile_and_upload:gulp'
-  after :updated, 'compile_and_upload:upload'
+  after :starting, 'composer:install_executable'
+  after :updated, 'tasks:migrate'
+  after :updated, 'tasks:bower'
+  after :updated, 'tasks:gulp'
+  after :updated, 'tasks:upload'
 end

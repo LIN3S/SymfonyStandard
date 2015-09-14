@@ -26,6 +26,8 @@ parameters:
 
     secret:            946672a831b47e20ec70435c92ebd586be6cb4af # A secret key that's used to generate certain security-related tokens
 
+    application_name: Application # Application name used in config files
+
     # Generate URLs and Send Emails from the Console http://symfony.com/doc/current/cookbook/console/sending_emails.html
     router.request_context.host:     example.org
     router.request_context.scheme:   https
