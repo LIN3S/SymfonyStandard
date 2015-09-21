@@ -59,15 +59,15 @@ will ask you some questions in order to create the needed file. If you want to c
 `$ cp app/config/parameters.yml.dist app/config/parameters.yml`
 
 > If the process fails as soon as it finishes, it's because the database is not created yet. Run
-`php app/console doctrine:database:create` in order to create it and the create the needed tables with
+`php app/console doctrine:database:create` in order to create it and then create the needed tables with
 `php app/console doctrine:migrations:migrate --no-interaction` command.
 
-After that, *if you use a web server*, you should visit the [Symfony permissions section][20] of the installation
-documentation so your CLI user and web server user are allowed to write. Also, if you are using Apache web server,
+After that, *if you use a Web server*, you should visit the [Symfony permissions section][20] of the installation
+documentation so your CLI user and Web server user are allowed to write. Also, if you are using Apache Web server,
 consider renaming `.htaccess.dist` files located within `app`, `src` and `web` folders to `.htaccess` or create the
 proper server configuration to improve global performances.
 
-If you are willing to use LiipImagineBundle, create the needed folder
+If you are willing to use LiipImagineBundle, create the needed folder:
 ```
 $ mkdir -p web/media/cache
 ```
@@ -107,38 +107,46 @@ framework:
     ide: "phpstorm://open?file=%%f&line=%%l"
 ```
 
-**Section under construction**
-
 ## Front-end workflow
-First of all, download all the dependencies needed, for Ruby, bower and Node.js:
+First of all, download all the dependencies needed for Ruby, Bower and Node.js:
 ```
 $ bundle install
 $ bower install
 $ npm install
 ```
 
-Feel free to add and/or edit the bower dependencies by editing the `bower.json` file.
+Feel free to add and/or edit the Bower dependencies by editing the `bower.json` file.
 
 After this initial step, you will have the following gulp tasks available:
 * `gulp sass`: compiles `app/Resources/assets/scss/app.scss` and moves the resulting files to `web/` folder.
 * `gulp scsslint`: it helps you to keep your SCSS files clean and readable.
-* `gulp watch`: check modifications within the `app/Resources/assets/scss/` and p`app/Reources/assets/js/` folders in order to compile again.
+* `gulp watch`: check modifications within the `app/Resources/assets/scss/` and `app/Reources/assets/js/` folders in order to compile again.
 * `gulp js:prod`: combines and minifies the needed JS files.
 * `gulp prod`: executes sass and js:prod tasks.
 
-As you see, create and/or edit .scss files within the `app/Resources/assets/scss/` folder. An initial structure is
-already given for you. You can also add/or edit .js files, but **remember** to modify `gulpfile.js` `js:prod` tasks in
-order to add what your project needs.
+As you see, you should create and/or edit .scss files within the `app/Resources/assets/scss/` folder. An initial
+structure is already given for you. You can also add/or edit .js files, but **remember** to modify `gulpfile.js`
+`js:prod` tasks in order to add what your project needs.
 
-**Section under construction**
+## Doctrine Extensions
+This bundle is installed by default. You just have to enable what your project needs, for example:
+```
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true
+            timestampable: true
+```
 
-## Other possible configurations
-* For the **DoctrineMigrationsBundle**, visit the [bundle documentation][5]
-  * **TIP**: just run `php app/console doctrine:migrations:generate`, review the generated file and push it to your SCM
-before running the deploy.
-* For the **StofDoctrineExtensions**, visit the [bundle documentation][7]
+Some extensions do need an extra configuration in the `doctrine` section of the `app/config/config.yml` file. Check
+the full configuration [here](https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst#step-3-add-the-extensions-to-your-mapping).
 
-**Section under construction**
+For the other possible configurations, visit the [bundle documentation][7]
+
+## Doctrine Migrations
+Capistrano will run the needed migrations when running a deployment. You just need to generate the correct files within
+the `app/migrations` folder. In order to do so, just run `php app/console doctrine:migrations:generate` and push the
+generated fil to your SCM before runnning the deploy.
 
 ## Deployment
 To automatize the deployment process this project is using **Capistrano** with **capistrano-symfony** plugin. You can
