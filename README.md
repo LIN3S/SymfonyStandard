@@ -148,6 +148,8 @@ Capistrano will run the needed migrations when running a deployment. You just ne
 the `app/migrations` folder. In order to do so, just run `php app/console doctrine:migrations:generate` and push the
 generated fil to your SCM before runnning the deploy.
 
+For other possible configurations, visit the [bundle documentation][5]
+
 ## Deployment
 To automatize the deployment process this project is using **Capistrano** with **capistrano-symfony** plugin. You can
 find the whole configuration within the `deploy` directory. Customize deploy tasks modifying the `deploy/deploy.rb` file.
