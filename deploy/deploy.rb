@@ -71,8 +71,8 @@ namespace :tasks do
   task :upload do
     if fetch(:env) == "prod"
       on roles(:all) do |host|
-        upload! "#{fetch(:web_path)}/css", "#{release_path}/#{fetch(:web_name)}", recursive: true
-        upload! "#{fetch(:web_path)}/js", "#{release_path}/#{fetch(:web_name)}", recursive: true
+        upload! "#{fetch(:web_path)}/css", "#{release_path}/#{fetch(:web_path)}", recursive: true
+        upload! "#{fetch(:web_path)}/js", "#{release_path}/#{fetch(:web_path)}", recursive: true
       end
     end
   end
