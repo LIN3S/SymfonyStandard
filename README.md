@@ -60,7 +60,7 @@ will ask you some questions in order to create the needed file. If you want to c
 
 > If the process fails as soon as it finishes, it's because the database is not created yet. Run
 `php app/console doctrine:database:create` in order to create it and then create the needed tables with
-`php app/console doctrine:migrations:migrate --no-interaction` command.
+`php app/console doctrine:schema:create` command.
 
 After that, *if you use a Web server*, you should visit the [Symfony permissions section][20] of the installation
 documentation so your CLI user and Web server user are allowed to write. Also, if you are using Apache Web server,
