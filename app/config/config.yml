@@ -106,6 +106,10 @@ stof_doctrine_extensions:
 sonata_block:
     default_contexts: [cms]
     blocks:
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+        sonata.block.service.text:
+        sonata.block.service.rss:
         sonata.admin.block.admin_list:
             contexts: [admin]
 
