@@ -37,7 +37,9 @@
 
 #### LIN3S ####
 .editorconfig
+.eslint.yml
 .lin3s_cs.yml
+.scss_lint.yml
 
 #### Node.js ####
 /node_modules

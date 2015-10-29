@@ -20,10 +20,10 @@ GEM
     net-ssh (2.9.2)
     rainbow (2.0.0)
     rake (10.4.2)
-    sass (3.4.16)
-    scss_lint (0.38.0)
+    sass (3.4.19)
+    scss_lint (0.42.2)
       rainbow (~> 2.0)
-      sass (~> 3.4.1)
+      sass (~> 3.4.15)
     sshkit (1.7.1)
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
@@ -35,8 +35,8 @@ PLATFORMS
 DEPENDENCIES
   capistrano (~> 3.1)
   capistrano-symfony (~> 0.4)
-  sass (~> 3.4.16)
-  scss_lint (~> 0.38.0)
+  sass (~> 3.4, >= 3.4.19)
+  scss_lint (~> 0.42.2)
 
 BUNDLED WITH
    1.10.6

@@ -1,0 +1,71 @@
+# This file is part of the Symfony Standard project.
+#
+# Copyright (c) 2015 LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @author Beñat Espiña <benatespina@gmail.com>
+
+parameters:
+    enabled:
+        - phpmd
+        - phpformatter
+        - phpcsfixer
+        - scsslint
+        - eslint
+
+    name: Symfony Standard
+    type: project
+    year: 2015
+    author: LIN3S
+    email: info@lin3s.com
+    version: 0.1
+
+    phpmd_path: src
+    phpmd_rules:
+        - controversial
+        - unusedcode
+        - codesize
+        - naming
+
+    phpformatter_path: src
+
+    phpcsfixer_path: src
+    phpcsfixer_level: symfony   # can be psr0, psr1, psr2 or symfony
+    phpcsfixer_fixers:
+        - -unalign_double_arrow
+        - -concat_without_spaces
+
+        - align_double_arrow
+        - concat_with_spaces
+        - multiline_spaces_before_semicolon
+        - newline_after_open_tag
+        - ordered_use
+        - php4_constructor
+        - phpdoc_order
+        - phpdoc_var_to_type
+        - short_array_syntax
+        - short_echo_tag
+        - strict
+        - strict_param
+
+    scsslint_path: app/Resources/assets/scss
+    scsslint_file_location: .
+    scsslint_exclude:
+        - base/_reset.scss
+    scsslint_rules:             # available rules can view for https://github.com/brigade/scss-lint/blob/master/config/default.yml
+        linters:
+            SelectorFormat:
+                enabled: true
+                convention: hyphenated_BEM
+    eslint_path: app/Resources/assets/js
+    eslint_file_location: .
+    eslint_exclude: []
+    eslint_rules:               # available rules can view in http://eslint.org/docs/rules/
+        ecmaFeatures: []
+        env:
+            browser: true
+            jquery: true
+        globals: []
+        rules: []

@@ -43,7 +43,9 @@ gulp.task('sass', ['scsslint'], function () {
 
 gulp.task('scsslint', function () {
   gulp.src(paths.sass + '/**/*.scss')
-    .pipe(scsslint('./scss_lint.yml'));
+    .pipe(scsslint({
+      'config': '.scss_lint.yml'
+    }));
 });
 
 gulp.task('js:prod', function () {

@@ -40,7 +40,7 @@ requirements:
 3. [Composer][17]: `curl -sS https://getcomposer.org/installer | php`
 4. [Ruby][18]
   * Bundler: `gem install bundler`
-5. [Node.js][19]
+5. [Node.js][19] 4.0 or higher
   * Bower: `npm install -g bower`
   * Gulp.js: `npm install -g gulp`
 
