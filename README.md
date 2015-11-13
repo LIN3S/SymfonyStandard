@@ -60,7 +60,7 @@ will ask you some questions in order to create the needed file. If you want to c
 
 > If the process fails as soon as it finishes, it's because the database is not created yet. Run
 `php app/console doctrine:database:create` in order to create it and then create the needed tables with
-`php app/console doctrine:schema:create` command.
+`php app/console doctrine:migrations:migrate` command.
 
 After that, *if you use a Web server*, you should visit the [Symfony permissions section][20] of the installation
 documentation so your CLI user and Web server user are allowed to write. Also, if you are using Apache Web server,
@@ -145,8 +145,8 @@ For the other possible configurations, visit the [bundle documentation][7]
 
 ## Doctrine Migrations
 Capistrano will run the needed migrations when running a deployment. You just need to generate the correct files within
-the `app/migrations` folder. In order to do so, just run `php app/console doctrine:migrations:generate` and push the
-generated fil to your SCM before runnning the deploy.
+the `app/migrations` folder. In order to do so, just run `php app/console doctrine:migrations:diff` and push the
+generated file to your SCM before runnning the deploy.
 
 For other possible configurations, visit the [bundle documentation][5]
 
