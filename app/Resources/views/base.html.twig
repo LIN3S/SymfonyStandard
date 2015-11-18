@@ -18,9 +18,9 @@
     {% block head_style %}
         {# Override this block to add your own files! #}
         {% if app.debug %}
-        <link href="{{ asset('css/app.min.css') }}" type="text/css" rel="stylesheet">
-        {% else %}
         <link href="{{ asset('css/app.css') }}" type="text/css" rel="stylesheet">
+        {% else %}
+        <link href="{{ asset('css/app.min.css') }}" type="text/css" rel="stylesheet">
         {% endif %}
     {% endblock head_style %}
     
