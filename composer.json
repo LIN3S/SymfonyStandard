@@ -36,8 +36,7 @@
         "sonata-project/user-bundle":                     "dev-master",
 
         "lin3s/cs":                                       "~0.1",
-        "lin3s/lin3s-distribution":                       "~1.1",
-        "lin3s/symfony-foundation":                       "~0.1"
+        "lin3s/lin3s-distribution":                       "~1.1"
     },
     "require-dev": {
         "behat/behat" :                                   "~3.0",
