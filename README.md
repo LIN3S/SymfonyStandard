@@ -25,22 +25,19 @@ this solution providing some useful features that the standard edition of Symfon
  * [Gulp.js][11]
 6. [Capistrano][12] deploy
 7. A complete base.html.twig based on [HTML5 Boilerplate][13]
-8. As dev dependency, [Doctrine Fixtures][23]
-9. [SymfonyFoundation][24] made by LIN3S
-10. [Coding standards library][25] made by LIN3S
-
-**Section under construction**
+8. As dev dependency, [Doctrine Fixtures][14]
+9. [Coding standards library][15] made by LIN3S
 
 ## Prerequisites
 The above sounds great so, now, to start developing with our Symfony Standard, you need to meet the following
 requirements:
 
-1. [PHP][14] 5.4 or higher
-2. [MySQL][15] or [MongoDB][16]
-3. [Composer][17]: `curl -sS https://getcomposer.org/installer | php`
-4. [Ruby][18]
+1. [PHP][16] 5.4 or higher
+2. [MySQL][17] or [MongoDB][18]
+3. [Composer][19]: `curl -sS https://getcomposer.org/installer | php`
+4. [Ruby][20]
   * Bundler: `gem install bundler`
-5. [Node.js][19] 4.0 or higher
+5. [Node.js][21] 4.0 or higher
   * Bower: `npm install -g bower`
   * Gulp.js: `npm install -g gulp`
 
@@ -62,7 +59,7 @@ will ask you some questions in order to create the needed file. If you want to c
 `php app/console doctrine:database:create` in order to create it and then create the needed tables with
 `php app/console doctrine:migrations:migrate` command.
 
-After that, *if you use a Web server*, you should visit the [Symfony permissions section][20] of the installation
+After that, *if you use a Web server*, you should visit the [Symfony permissions section][22] of the installation
 documentation so your CLI user and Web server user are allowed to write. Also, if you are using Apache Web server,
 consider renaming `.htaccess.dist` files located within `app`, `src` and `web` folders to `.htaccess` or create the
 proper server configuration to improve global performances.
@@ -98,10 +95,10 @@ A complete `app/Resources/views/base.html.twig` file is provided by default. Be 
 the meta blocks whenever it's needed. Commented out you can find usefull examples with the full information links and
 validators.
 
-We improved the production logs managed by [*monologs*][21]. Edit `app/config/config_prod.yml`
+We improved the production logs managed by [*monolog*][23]. Edit `app/config/config_prod.yml`
 so it suits your needs.
 
-Also, if your development IDE is [PhpStorm][22], uncomment the following line in `app/config/config.yml`:
+Also, if your development IDE is [PhpStorm][24], uncomment the following line in `app/config/config.yml`:
 ```
 framework:
     ide: "phpstorm://open?file=%%f&line=%%l"
@@ -139,7 +136,7 @@ stof_doctrine_extensions:
 ```
 
 Some extensions do need an extra configuration in the `doctrine` section of the `app/config/config.yml` file. Check
-the full configuration [here](https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst#step-3-add-the-extensions-to-your-mapping).
+the full configuration [here][25].
 
 For the other possible configurations, visit the [bundle documentation][7]
 
@@ -160,7 +157,7 @@ Git project url.
 Inside `deploy/stages` directory there are two files that can be considered as pre-production stage and production stage.
 There is no logic, these files only contain few parameters that you should customize for your proper deployment.
 
-After all, and following the Capistrano [documentation][11] to configure the server, you can deploy executing:
+After all, and following the Capistrano [documentation][12] to configure the server, you can deploy executing:
 ```
 $ cap <stage> deploy    # <stage> can be dev1, prod or whatever file inside stages directory
 ```
@@ -169,27 +166,27 @@ $ cap <stage> deploy    # <stage> can be dev1, prod or whatever file inside stag
 and `web/uploads` folder should be created for you.
 
 [1]: http://symfony.com/
-[2]: http://lin3s.com
+[2]: http://www.lin3s.com/
 [3]: https://sonata-project.org/bundles/admin
 [4]: https://sonata-project.org/bundles/user
-[5]: http://sass-lang.com/
-[6]: https://symfony.com/doc/master/bundles/DoctrineMigrationsBundle/index.html
+[5]: http://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+[6]: https://github.com/liip/LiipImagineBundle
 [7]: https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst
-[8]: https://github.com/liip/LiipImagineBundle
+[8]: http://sass-lang.com/
 [9]: https://www.npmjs.com/
 [10]: http://bower.io/
 [11]: http://gulpjs.com/
 [12]: http://capistranorb.com/
 [13]: https://html5boilerplate.com/
-[14]: http://php.net
-[15]: http://dev.mysql.com/downloads/
-[16]: https://www.mongodb.org/
-[17]: https://getcomposer.org/
-[18]: https://www.ruby-lang.org/en/downloads/
-[19]: https://nodejs.org/download/
-[20]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
-[21]: http://symfony.com/doc/master/cookbook/logging/monolog.html
-[22]: https://www.jetbrains.com/phpstorm/
-[23]: http://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
-[24]: https://github.com/LIN3S/SymfonyFoundation
-[25]: https://github.com/LIN3S/CS
+[14]: http://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
+[15]: https://github.com/LIN3S/CS
+[16]: http://php.net
+[17]: http://dev.mysql.com/downloads/
+[18]: https://www.mongodb.org/
+[19]: https://getcomposer.org/
+[20]: https://www.ruby-lang.org/en/downloads/
+[21]: https://nodejs.org/download/
+[22]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
+[23]: http://symfony.com/doc/master/cookbook/logging/monolog.html
+[24]: https://www.jetbrains.com/phpstorm/
+[25]: https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst#step-3-add-the-extensions-to-your-mapping
