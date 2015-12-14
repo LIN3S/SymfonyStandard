@@ -98,6 +98,15 @@ validators.
 We improved the production logs managed by [*monolog*][23]. Edit `app/config/config_prod.yml`
 so it suits your needs.
 
+If you are planning to add some tests, be sure to edit your composer.json `autoload` section with something like this:
+```
+"autoload": {
+    "psr-4": { "": "src/" },
+    "classmap": [ "app/AppKernel.php", "app/AppCache.php" ],
+    "exclude-from-classmap": [ "/Tests/", "/test/", "/tests/" ]
+},
+```
+
 Also, if your development IDE is [PhpStorm][24], uncomment the following line in `app/config/config.yml`:
 ```
 framework:
