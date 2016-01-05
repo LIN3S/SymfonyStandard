@@ -13,13 +13,14 @@
 'use strict';
 
 var gulp = require('gulp'),
-  sass = require('gulp-sass'),
   autoprefixer = require('gulp-autoprefixer'),
-  rename = require('gulp-rename'),
-  minifycss = require('gulp-minify-css'),
-  scsslint = require('gulp-scss-lint'),
   concat = require('gulp-concat'),
-  uglify = require('gulp-uglify');
+  livereload = require('gulp-livereload'),
+  minifycss = require('gulp-minify-css'),
+  rename = require('gulp-rename'),
+  uglify = require('gulp-uglify'),
+  sass = require('gulp-sass'),
+  scsslint = require('gulp-scss-lint');
 
 var paths = {
   sass: './app/Resources/assets/scss',
@@ -42,26 +43,35 @@ gulp.task('sass', ['scsslint'], function () {
 });
 
 gulp.task('scsslint', function () {
-  gulp.src(paths.sass + '/**/*.scss')
-    .pipe(scsslint({
-      'config': '.scss_lint.yml'
-    }));
+  gulp.src([
+    paths.sass + '/**/*.scss',
+    '!' + paths.sass + '/base/_reset.scss'
+  ])
+  .pipe(scsslint({
+    'config': '.scss_lint.yml'
+  }));
 });
 
 gulp.task('js:prod', function () {
   gulp.src([
-    paths.vendor + '/foundation/js/vendor/jquery.js',
-    paths.vendor + '/foundation/js/foundation.js',
+    paths.vendor + '/jquery/dist/jquery.js',
+    paths.vendor + '/foundation-sites/dist/foundation.js',
     paths.js + '/**/*.js'
   ])
-    .pipe(concat('app.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest(paths.buildJs));
+  .pipe(concat('app.min.js'))
+  .pipe(uglify())
+  .pipe(gulp.dest(paths.buildJs));
 });
 
 gulp.task('watch', function () {
-  gulp.watch(paths.sass + '/**/*.scss', ['sass']);
-  gulp.watch(paths.js + '/**/*.js', ['js:prod']);
+  var onChange = function (event) {
+    livereload.changed('');
+  };
+  livereload.listen();
+  gulp.watch(paths.sass + '/**/*.scss', ['sass'])
+    .on('change', onChange);
+  gulp.watch(paths.js + '/**/*.js', ['js:prod'])
+    .on('change', onChange);
 });
 
 gulp.task('prod', ['sass', 'js:prod']);

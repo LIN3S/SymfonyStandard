@@ -134,6 +134,9 @@ As you see, you should create and/or edit .scss files within the `app/Resources/
 structure is already given for you. You can also add/or edit .js files, but **remember** to modify `gulpfile.js`
 `js:prod` tasks in order to add what your project needs.
 
+Also, `livereload` is up and running when launching `gulp watch`. You should install the correct browser extension and
+be sure to navigate through the dev environment.
+
 ## Doctrine Extensions
 This bundle is installed by default. You just have to enable what your project needs, for example:
 ```
