@@ -9,11 +9,14 @@
 
 @import 'base/reset';
 @import 'base/colors';
-@import 'base/foundation-settings';
 //@import 'base/common';
 //@import 'base/typography';
 
-@import '../vendor/foundation/scss/foundation/components/grid';
+@import '../vendor/foundation-sites/scss/util/util';
+@import '../vendor/foundation-sites/scss/global';
+@import '../vendor/foundation-sites/scss/grid/grid';
+@include foundation-global-styles;
+@include foundation-flex-grid;
 
 @import 'layout/header';
 @import 'layout/content';
