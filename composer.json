@@ -15,7 +15,7 @@
         "php":                                            ">=5.4",
 
         "doctrine/dbal":                                  "2.5.*",
-        "doctrine/doctrine-bundle":                       "~1.4",
+        "doctrine/doctrine-bundle":                       "~1.6",
         "doctrine/orm":                                   "^2.4.8",
         "sensio/distribution-bundle":                     "~5.0",
         "sensio/framework-extra-bundle":                  "^3.0.2",
@@ -81,7 +81,8 @@
     },
     "autoload": {
         "psr-4": { "": "src/" },
-        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ],
+        "exclude-from-classmap": [ "/Tests/", "/test/", "/tests/" ]
     },
     "config": {
         "bin-dir": "bin"
