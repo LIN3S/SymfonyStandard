@@ -16,7 +16,7 @@ var gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   concat = require('gulp-concat'),
   livereload = require('gulp-livereload'),
-  minifycss = require('gulp-minify-css'),
+  cssnano = require('gulp-cssnano'),
   rename = require('gulp-rename'),
   uglify = require('gulp-uglify'),
   sass = require('gulp-sass'),
@@ -38,7 +38,7 @@ gulp.task('sass', ['scsslint'], function () {
     .pipe(autoprefixer())
     .pipe(gulp.dest(paths.css))
     .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss())
+    .pipe(cssnano())
     .pipe(gulp.dest(paths.css));
 });
 
