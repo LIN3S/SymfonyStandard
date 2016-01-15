@@ -104,12 +104,6 @@
     {% endblock foot_script %}
 {% endblock body %}
 
-{% block livereload %}
-    {% if app.environment == 'dev' %}
-        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-    {% endif %}
-{% endblock livereload %}
-
 {% block body_end %}
 {% endblock body_end %}
 </body>
