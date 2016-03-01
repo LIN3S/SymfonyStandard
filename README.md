@@ -124,11 +124,13 @@ $ npm install
 Feel free to add and/or edit the Bower dependencies by editing the `bower.json` file.
 
 After this initial step, you will have the following gulp tasks available:
-* `gulp sass`: compiles `app/Resources/assets/scss/app.scss` and moves the resulting files to `web/` folder.
+* `gulp sass`: compiles `app/Resources/assets/scss/app.scss` and moves the resulting file to `web/` folder.
+* `gulp sass:prod`: compiles and minifies `app/Resources/assets/scss/app.scss` and moves the resulting file to `web/` folder.
 * `gulp scsslint`: it helps you to keep your SCSS files clean and readable.
 * `gulp watch`: check modifications within the `app/Resources/assets/scss/` and `app/Reources/assets/js/` folders in order to compile again.
 * `gulp js:prod`: combines and minifies the needed JS files.
-* `gulp prod`: executes sass and js:prod tasks.
+* `gulp default`: executes sass and js:prod tasks and starts watching.
+* `gulp prod`: executes sass:prod and js:prod tasks.
 
 As you see, you should create and/or edit .scss files within the `app/Resources/assets/scss/` folder. An initial
 structure is already given for you. You can also add/or edit .js files, but **remember** to modify `gulpfile.js`
