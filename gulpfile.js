@@ -15,21 +15,24 @@
 var gulp = require('gulp'),
   concat = require('gulp-concat'),
   cssnext = require('postcss-cssnext'),
-  livereload = require('gulp-livereload'),
   cssnano = require('gulp-cssnano'),
+  livereload = require('gulp-livereload'),
   plumber = require('gulp-plumber'),
   postcss = require('gulp-postcss'),
   rename = require('gulp-rename'),
-  uglify = require('gulp-uglify'),
   sass = require('gulp-sass'),
-  scsslint = require('gulp-scss-lint');
+  scsslint = require('gulp-scss-lint'),
+  svgSprite = require('gulp-svg-sprite'),
+  uglify = require('gulp-uglify');
 
 var paths = {
   sass: './app/Resources/assets/scss',
   css: './web/css',
   js: './app/Resources/assets/js',
   buildJs: './web/js',
-  vendor: './app/Resources/assets/vendor'
+  svg: './app/Resources/assets/svg',
+  buildSvg: './web/svg',
+  vendor: './app/Resources/assets/vendor',
 };
 
 // Plumber error function
@@ -43,7 +46,9 @@ gulp.task('sass', ['scsslint'], function () {
     .pipe(plumber({
       errorHandler: onError
     }))
-    .pipe(sass())
+    .pipe(sass({
+      errLogToConsole: true
+    }))
     .pipe(postcss([cssnext]))
     .pipe(gulp.dest(paths.css))
     .pipe(livereload())
@@ -57,7 +62,10 @@ gulp.task('sass:prod', function () {
     }))
     .pipe(sass())
     .pipe(postcss([cssnext]))
-    .pipe(cssnano())
+    .pipe(cssnano({
+      keepSpecialComments: 1,
+      rebase: false
+    }))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(paths.css))
   ;
@@ -75,6 +83,23 @@ gulp.task('scsslint', function () {
       'config': '.scss_lint.yml'
     }))
   ;
+});
+
+gulp.task('sprites', function () {
+  return gulp.src(paths.svg + '/*.svg')
+    .pipe(plumber({
+      errorHandler: onError
+    }))
+    .pipe(svgSprite({
+      mode: {
+        symbol: {
+          dest: '',
+          sprite: 'symbols',
+          example: {dest: 'symbols'}
+        }
+      }
+    }))
+    .pipe(gulp.dest(paths.buildSvg));
 });
 
 gulp.task('js:prod', function () {
