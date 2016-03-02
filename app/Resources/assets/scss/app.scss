@@ -17,6 +17,7 @@
 @import '../vendor/foundation-sites/scss/components/flex';
 @include foundation-global-styles;
 @include foundation-flex-grid;
+@include foundation-flex-classes;
 
 @import 'base/common';
 
