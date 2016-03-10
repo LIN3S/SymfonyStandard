@@ -30,9 +30,7 @@
         "stof/doctrine-extensions-bundle":                "^1.2",
 
         "sonata-project/admin-bundle":                    "^2.4@dev",
-        "sonata-project/datagrid-bundle":                 "^2.2@dev",
         "sonata-project/doctrine-orm-admin-bundle":       "^2.3@dev",
-        "sonata-project/easy-extends-bundle":             "^2.1",
         "sonata-project/user-bundle":                     "^2.3@dev",
 
         "lin3s/cs":                                       "~0.3",
