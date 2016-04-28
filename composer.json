@@ -29,8 +29,8 @@
         "liip/imagine-bundle":                            "^1.5",
         "stof/doctrine-extensions-bundle":                "^1.2",
 
-        "sonata-project/admin-bundle":                    "^2.4@dev",
-        "sonata-project/doctrine-orm-admin-bundle":       "^2.3@dev",
+        "sonata-project/admin-bundle":                    "3.x-dev as 2.4",
+        "sonata-project/doctrine-orm-admin-bundle":       "3.x-dev as 2.4",
         "sonata-project/user-bundle":                     "^2.3@dev",
 
         "lin3s/cs":                                       "~0.3",
