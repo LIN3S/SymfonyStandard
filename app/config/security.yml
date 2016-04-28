@@ -38,11 +38,6 @@ security:
                 use_forward:    false
                 check_path:     sonata_user_admin_security_check
                 failure_path:   null
-            remember_me:
-                key:      "%secret%"
-                lifetime: 31536000
-                path:     /
-                domain:   ~
             logout:
                 path:           sonata_user_admin_security_logout
             anonymous:          true
@@ -61,6 +56,11 @@ security:
                 use_forward:    false
                 check_path:     fos_user_security_check
                 failure_path:   null
+            remember_me:
+                secret:   "%secret%"
+                lifetime: 31536000
+                path:     /
+                domain:   ~
             logout:
                 path:           fos_user_security_logout
             anonymous:          true
