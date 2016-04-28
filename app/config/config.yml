@@ -91,9 +91,9 @@ swiftmailer:
 # Doctrine Migrations Configuration
 doctrine_migrations:
     dir_name: "%kernel.root_dir%/migrations"
-    namespace: "%application_name%\Migrations"
+    namespace: "%application_name%\\Migrations"
     table_name: migration_versions
-    name: %application_name% Migrations
+    name: "%application_name% Migrations"
 
 # LiipImagine Configuration
 liip_imagine:
