@@ -179,6 +179,18 @@ $ cap <stage> deploy    # <stage> can be dev1, prod or whatever file inside stag
 > In the Capistrano shared directory you should create the `app/config/parameters.yml` file, `app/logs`, `app/sessions`
 and `web/uploads` folder should be created for you.
 
+###Clearing remote caches
+
+When working with PHP7 & Opcache, for example, you won't see all changes after deploying. Caches need to be flushed
+with the correct website domain. If you need this feature, just open the `deploy.rb` file and remove the commented line:
+
+```
+after :finishing, 'cache:clear'
+```
+
+You also need to configure the website domain in each stage file. If the website is password protected, the `curl`
+command must use the `-u user:password` given in the `dev1.rb` example file.
+
 [1]: http://symfony.com/
 [2]: http://www.lin3s.com/
 [3]: https://sonata-project.org/bundles/admin

@@ -77,6 +77,19 @@ namespace :tasks do
     end
   end
 end
+############################################
+# Empty remote caches
+############################################
+namespace :cache do
+
+  desc 'Clears accelerator caches'
+
+  task :clear do
+    on roles(:all) do |host|
+      execute "curl #{fetch(:cache_opts)} #{fetch(:domain)}/deploy/scripts/clearcache.php"
+    end
+  end
+end
 
 namespace :deploy do
   after :starting, 'composer:install_executable'
@@ -84,4 +97,5 @@ namespace :deploy do
   after :updated, 'tasks:bower'
   after :updated, 'tasks:gulp'
   after :updated, 'tasks:upload'
+  #after :finishing, 'cache:clear'
 end
