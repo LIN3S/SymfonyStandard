@@ -27,12 +27,12 @@ var gulp = require('gulp'),
 
 var paths = {
   sass: './app/Resources/assets/scss',
-  css: './web/css',
   js: './app/Resources/assets/js',
-  buildJs: './web/js',
   svg: './app/Resources/assets/svg',
-  buildSvg: './web/svg',
   vendor: './app/Resources/assets/vendor',
+  buildCss: './web/css',
+  buildJs: './web/js',
+  buildSvg: './web/svg',
 };
 
 // Plumber error function
@@ -50,7 +50,7 @@ gulp.task('sass', ['scsslint'], function () {
       errLogToConsole: true
     }))
     .pipe(postcss([cssnext]))
-    .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest(paths.buildCss))
     .pipe(livereload())
   ;
 });
@@ -67,7 +67,7 @@ gulp.task('sass:prod', function () {
       rebase: false
     }))
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest(paths.buildCss))
   ;
 });
 
@@ -117,12 +117,12 @@ gulp.task('js:prod', function () {
   ;
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', ['sass', 'js:prod'], function () {
   livereload.listen();
   gulp.watch(paths.sass + '/**/*.scss', ['sass']);
   gulp.watch(paths.js + '/**/*.js', ['js:prod']);
 });
 
-gulp.task('default', ['sass', 'js', 'watch']);
+gulp.task('default', ['sass', 'js:prod', 'watch']);
 
 gulp.task('prod', ['sass:prod', 'js:prod']);
