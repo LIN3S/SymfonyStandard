@@ -95,7 +95,7 @@ namespace :cache do
 
   task :clear do
     on roles(:all) do |host|
-      execute "curl #{fetch(:cache_opts)} #{fetch(:domain)}/deploy/scripts/clearcache.php"
+      execute "curl #{fetch(:cache_opts)} #{fetch(:domain)}/scripts/clearcache.php"
     end
   end
 end
