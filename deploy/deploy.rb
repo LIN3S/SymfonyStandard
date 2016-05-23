@@ -40,6 +40,14 @@ set :file_permissions_paths, [fetch(:cache_path), fetch(:log_path), fetch(:sessi
 set :composer_install_flags, '--no-interaction --optimize-autoloader'
 
 namespace :tasks do
+  task :check_branch do
+    current_branch = `git branch`.match(/\* (\S+)\s/m)[1]
+    if current_branch != fetch(:branch)
+      puts "\e[31mCurrent branch '#{current_branch}' differs from deployment branch, stopping\e[0m"
+      exit 1
+    end
+  end
+
   task :migrate do
     invoke 'symfony:console', 'doctrine:migrations:migrate', '--no-interaction'
   end
@@ -77,6 +85,7 @@ namespace :tasks do
     end
   end
 end
+
 ############################################
 # Empty remote caches
 ############################################
@@ -92,6 +101,7 @@ namespace :cache do
 end
 
 namespace :deploy do
+  after :starting, 'tasks:check_branch'
   after :starting, 'composer:install_executable'
   after :updated, 'tasks:migrate'
   after :updated, 'tasks:bower'
