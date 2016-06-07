@@ -13,7 +13,7 @@
   background: $white;
   bottom: 0;
   font-size: 12px;
-  padding: 20px 15px;
+  padding: 20px $global-padding;
   position: fixed;
   transform: translateY(100%);
   transition: transform .3s;
@@ -43,7 +43,7 @@
 
   .cookies__content {
     flex: 1;
-    padding-right: 15px;
+    padding-right: $global-padding;
   }
 
   .cookies__actions {

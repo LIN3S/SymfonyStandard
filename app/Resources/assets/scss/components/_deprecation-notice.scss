@@ -1,0 +1,37 @@
+// This file is part of the Symfony Standard project.
+//
+// Copyright (c) 2016 LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+
+.flexbox .deprecation-notice {
+  display: none;
+}
+
+.deprecation-notice {
+  background: $white;
+  bottom: 0;
+  left: 0;
+  padding-top: 30px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 200;
+}
+
+.deprecation-notice__title,
+.deprecation-notice__content {
+  margin: auto;
+  max-width: 500px;
+  padding: 0 $global-padding;
+}
+
+.deprecation-notice__title {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px auto;
+}

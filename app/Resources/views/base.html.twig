@@ -78,7 +78,11 @@
 {% endblock body_start %}
 
 {% block body %}
-    
+
+    {% block deprecationNotice %}
+        {% include 'component/deprecation_notice.html.twig' %}
+    {% endblock %}
+
     {% block header %}{% endblock header %}
     
     {% block content %}{% endblock content %}
