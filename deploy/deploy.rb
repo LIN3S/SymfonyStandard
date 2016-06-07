@@ -52,18 +52,6 @@ namespace :tasks do
     invoke 'symfony:console', 'doctrine:migrations:migrate', '--no-interaction'
   end
 
-  task :bower do
-    if fetch(:env) == "prod"
-      run_locally do
-        execute "bower install"
-      end
-    else
-      on roles(:all) do |host|
-        execute "cd #{release_path}; bower install"
-      end
-    end
-  end
-
   task :gulp do
     if fetch(:env) == "prod"
       run_locally do
@@ -94,9 +82,7 @@ namespace :cache do
   desc 'Clears accelerator caches'
 
   task :clear do
-    on roles(:all) do |host|
-      execute "curl #{fetch(:cache_opts)} #{fetch(:domain)}/scripts/clearcache.php"
-    end
+    invoke 'symfony:console', 'cache:accelerator:clear', "--opcode --no-interaction"
   end
 end
 
@@ -104,7 +90,6 @@ namespace :deploy do
   after :starting, 'tasks:check_branch'
   after :starting, 'composer:install_executable'
   after :updated, 'tasks:migrate'
-  after :updated, 'tasks:bower'
   after :updated, 'tasks:gulp'
   after :updated, 'tasks:upload'
   #after :finishing, 'cache:clear'
