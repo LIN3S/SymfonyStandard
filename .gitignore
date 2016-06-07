@@ -35,6 +35,9 @@
 /web/css
 /web/js
 
+#### CAPISTRANO ####
+/log
+
 #### LIN3S ####
 .editorconfig
 .eslint.yml
@@ -43,7 +46,6 @@
 
 #### Node.js ####
 /node_modules
-/app/Resources/assets/vendor
 
 #### Composer #### 
 /composer.phar
