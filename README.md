@@ -185,11 +185,11 @@ When working with PHP7 & Opcache, for example, you won't see all changes after d
 with the correct website domain. If you need this feature, just open the `deploy.rb` file and remove the commented line:
 
 ```
-after :finishing, 'cache:clear'
+  #after :finishing, 'cache:clear'
 ```
 
-You also need to configure the website domain in each stage file. If the website is password protected, the `curl`
-command must use the `-u user:password` given in the `dev1.rb` example file.
+If you need different configurations for your deployment stages, feel free to create a variable and add the required
+parameters to the `stages/*.rb` files.
 
 [1]: http://symfony.com/
 [2]: http://www.lin3s.com/
