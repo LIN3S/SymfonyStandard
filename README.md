@@ -188,8 +188,8 @@ with the correct website domain. If you need this feature, just open the `deploy
   #after :finishing, 'cache:clear'
 ```
 
-If you need different configurations for your deployment stages, feel free to create a variable and add the required
-parameters to the `stages/*.rb` files.
+This is done by [Smart-Core/AcceleratorCacheBundle][25]. If you need different configurations for your deployment
+stages, feel free to create a variable and add the required parameters to the `stages/*.rb` files.
 
 [1]: http://symfony.com/
 [2]: http://www.lin3s.com/
@@ -215,3 +215,4 @@ parameters to the `stages/*.rb` files.
 [22]: http://symfony.com/doc/master/cookbook/logging/monolog.html
 [23]: https://www.jetbrains.com/phpstorm/
 [24]: https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst#step-3-add-the-extensions-to-your-mapping
+[25]: https://github.com/Smart-Core/AcceleratorCacheBundle
