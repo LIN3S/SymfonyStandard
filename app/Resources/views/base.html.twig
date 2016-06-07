@@ -70,6 +70,10 @@
 <body>
 {% endblock body_tag %}
 
+{% block google_tag_manager %}
+<div class="google-tag-manager"></div>
+{% endblock google_tag_manager %}
+
 {% block body_start %}
 {% endblock body_start %}
 
@@ -97,10 +101,6 @@
 
     {% block body_end_before_js %}
     {% endblock body_end_before_js %}
-    
-    {% if not app.debug %}
-    {# Insert here your Tag Manager, Analytics or whatever you need #}
-    {% endif %}
 
     {% block foot_script %}
     {# Overwrite this block to add your own js here #}

@@ -17,6 +17,7 @@ var gulp = require('gulp'),
   cssnext = require('postcss-cssnext'),
   cssnano = require('gulp-cssnano'),
   livereload = require('gulp-livereload'),
+  modernizr = require('gulp-modernizr'),
   plumber = require('gulp-plumber'),
   postcss = require('gulp-postcss'),
   rename = require('gulp-rename'),
@@ -26,13 +27,13 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify');
 
 var paths = {
+  npm: './node_modules',
   sass: './app/Resources/assets/scss',
   js: './app/Resources/assets/js',
   svg: './app/Resources/assets/svg',
-  vendor: './app/Resources/assets/vendor',
   buildCss: './web/css',
   buildJs: './web/js',
-  buildSvg: './web/svg',
+  buildSvg: './web/svg'
 };
 
 // Plumber error function
@@ -41,7 +42,7 @@ function onError(err) {
   this.emit('end');
 }
 
-gulp.task('sass', ['scsslint'], function () {
+gulp.task('sass', ['scss-lint'], function () {
   gulp.src(paths.sass + '/app.scss')
     .pipe(plumber({
       errorHandler: onError
@@ -51,8 +52,7 @@ gulp.task('sass', ['scsslint'], function () {
     }))
     .pipe(postcss([cssnext]))
     .pipe(gulp.dest(paths.buildCss))
-    .pipe(livereload())
-  ;
+    .pipe(livereload());
 });
 
 gulp.task('sass:prod', function () {
@@ -67,11 +67,10 @@ gulp.task('sass:prod', function () {
       rebase: false
     }))
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(paths.buildCss))
-  ;
+    .pipe(gulp.dest(paths.buildCss));
 });
 
-gulp.task('scsslint', function () {
+gulp.task('scss-lint', function () {
   gulp.src([
       paths.sass + '/**/*.scss',
       '!' + paths.sass + '/base/_reset.scss'
@@ -81,8 +80,39 @@ gulp.task('scsslint', function () {
     }))
     .pipe(scsslint({
       'config': '.scss_lint.yml'
+    }));
+});
+
+gulp.task('modernizr', function () {
+  return gulp.src([paths.js + '/*.js'])
+    .pipe(plumber({
+      errorHandler: onError
     }))
-  ;
+    .pipe(modernizr({
+      'options': [
+        'setClasses', 'addTest', 'html5printshiv', 'testProp', 'fnBind'
+      ],
+      'tests': ['objectfit', 'flexbox']
+    }))
+    .pipe(gulp.dest(paths.buildJs))
+});
+
+gulp.task('js:prod', ['modernizr'], function () {
+  gulp.src([
+      paths.buildJs + '/modernizr.js',
+      paths.npm + '/fastclick/lib/fastclick.js',
+      paths.npm + '/svg4everybody/dist/svg4everybody.min.js',
+      paths.npm + '/picturefill/dist/picturefill.min.js',
+      paths.npm + '/jquery/dist/jquery.js',
+      //paths.npm + '/foundation-sites/dist/foundation.js',
+      paths.js + '/**/*.js'
+    ])
+    .pipe(plumber({
+      errorHandler: onError
+    }))
+    .pipe(concat('app.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.buildJs));
 });
 
 gulp.task('sprites', function () {
@@ -102,27 +132,13 @@ gulp.task('sprites', function () {
     .pipe(gulp.dest(paths.buildSvg));
 });
 
-gulp.task('js:prod', function () {
-  gulp.src([
-      paths.vendor + '/jquery/dist/jquery.js',
-      paths.vendor + '/foundation-sites/dist/foundation.js',
-      paths.js + '/**/*.js'
-    ])
-    .pipe(plumber({
-      errorHandler: onError
-    }))
-    .pipe(concat('app.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest(paths.buildJs))
-  ;
-});
-
 gulp.task('watch', ['sass', 'js:prod'], function () {
   livereload.listen();
   gulp.watch(paths.sass + '/**/*.scss', ['sass']);
   gulp.watch(paths.js + '/**/*.js', ['js:prod']);
+  gulp.watch(paths.svg + '/**/*.js', ['sprites']);
 });
 
-gulp.task('default', ['sass', 'js:prod', 'watch']);
+gulp.task('default', ['sass', 'js:prod', 'sprites', 'watch']);
 
-gulp.task('prod', ['sass:prod', 'js:prod']);
+gulp.task('prod', ['sass:prod', 'modernizr', 'js:prod', 'sprites']);

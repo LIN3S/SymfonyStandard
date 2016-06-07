@@ -11,10 +11,11 @@
 @import 'base/colors';
 @import 'base/typography';
 
-@import '../vendor/foundation-sites/scss/util/util';
-@import '../vendor/foundation-sites/scss/global';
-@import '../vendor/foundation-sites/scss/grid/grid';
-@import '../vendor/foundation-sites/scss/components/flex';
+// Imports for using Zurb Foundation
+@import '../../../../node_modules/foundation-sites/scss/util/util';
+@import '../../../../node_modules/foundation-sites/scss/global';
+@import '../../../../node_modules/foundation-sites/scss/grid/grid';
+@import '../../../../node_modules/foundation-sites/scss/components/flex';
 @include foundation-global-styles;
 @include foundation-flex-classes;
 @include foundation-flex-grid;

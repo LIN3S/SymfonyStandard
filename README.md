@@ -14,38 +14,38 @@ this solution providing some useful features that the standard edition of Symfon
 
 1. [SonataAdminBundle][3]
 2. [SonataUserBundle][4]
- * ToDo
+ * Dependencies not included in this file.
 3. [Doctrine Migrations][5]
 3. [LiipImagineBundle][6]
 4. [StofDoctrineExtensions][7]
 5. Front-end workflow
  * [Sass][8]
  * [Npm][9]
- * [Bower][10]
- * [Gulp.js][11]
-6. [Capistrano][12] deploy
-7. A complete base.html.twig based on [HTML5 Boilerplate][13]
-8. As dev dependency, [Doctrine Fixtures][14]
-9. [Coding standards library][15] made by LIN3S
+ * [Gulp.js][10]
+6. [Capistrano][11] deploy
+7. A complete base.html.twig based on [HTML5 Boilerplate][12]
+8. As dev dependency, [Doctrine Fixtures][13]
+9. [Coding standards library][14] made by LIN3S
 
 ## Prerequisites
 The above sounds great so, now, to start developing with our Symfony Standard, you need to meet the following
 requirements:
 
-1. [PHP][16] 5.4 or higher
-2. [MySQL][17] or [MongoDB][18]
-3. [Composer][19]: `curl -sS https://getcomposer.org/installer | php`
-4. [Ruby][20]
+1. [PHP][15] 5.4 or higher
+2. [MySQL][16] or [MongoDB][178]
+3. [Composer][18]: `curl -sS https://getcomposer.org/installer | php`
+4. [Ruby][19]
   * Bundler: `gem install bundler`
-5. [Node.js][21] 4.0 or higher
-  * Bower: `npm install -g bower`
+  * After bundler: `bundle install` (see Gemfile)
+5. [Node.js][20] 4.0 or higher
   * Gulp.js: `npm install -g gulp`
+  * ESLint: `npm install -g eslint`
 
 ## Getting Started
 After installing all the prerequisites, to create a Symfony project based on this *Symfony Standard*, you should
 follow these steps.
 
-First of all, you need to **clone the project**:
+Firstly, you need to **create the project**:
 ```
 $ composer create-project lin3s/symfony-standard <project-name> && cd <project-name>
 ```
@@ -59,7 +59,7 @@ will ask you some questions in order to create the needed file. If you want to c
 `php app/console doctrine:database:create` in order to create it and then create the needed tables with
 `php app/console doctrine:migrations:migrate` command.
 
-After that, *if you use a Web server*, you should visit the [Symfony permissions section][22] of the installation
+After that, *if you use a Web server*, you should visit the [Symfony permissions section][21] of the installation
 documentation so your CLI user and Web server user are allowed to write. Also, if you are using Apache Web server,
 consider renaming `.htaccess.dist` files located within `app`, `src` and `web` folders to `.htaccess` or create the
 proper server configuration to improve global performances.
@@ -95,8 +95,7 @@ A complete `app/Resources/views/base.html.twig` file is provided by default. Be 
 the meta blocks whenever it's needed. Commented out you can find usefull examples with the full information links and
 validators.
 
-We improved the production logs managed by [*monolog*][23]. Edit `app/config/config_prod.yml`
-so it suits your needs.
+We improved the production logs managed by [*monolog*][22]. Edit `app/config/config_prod.yml` so it suits your needs.
 
 If you are planning to add some tests, be sure to edit your composer.json `autoload` section with something like this:
 ```
@@ -107,30 +106,31 @@ If you are planning to add some tests, be sure to edit your composer.json `autol
 },
 ```
 
-Also, if your development IDE is [PhpStorm][24], uncomment the following line in `app/config/config.yml`:
+Also, if your development IDE is [PhpStorm][23], uncomment the following line in `app/config/config.yml`:
 ```
 framework:
     ide: "phpstorm://open?file=%%f&line=%%l"
 ```
 
 ## Front-end workflow
-First of all, download all the dependencies needed for Ruby, Bower and Node.js:
+First of all, download all the dependencies needed for Ruby and Node.js:
 ```
 $ bundle install
-$ bower install
 $ npm install
 ```
 
-Feel free to add and/or edit the Bower dependencies by editing the `bower.json` file.
+Feel free to add and/or edit the npm dependencies by editing the `package.json` file.
 
 After this initial step, you will have the following gulp tasks available:
 * `gulp sass`: compiles `app/Resources/assets/scss/app.scss` and moves the resulting file to `web/` folder.
 * `gulp sass:prod`: compiles and minifies `app/Resources/assets/scss/app.scss` and moves the resulting file to `web/` folder.
-* `gulp scsslint`: it helps you to keep your SCSS files clean and readable.
-* `gulp watch`: check modifications within the `app/Resources/assets/scss/` and `app/Reources/assets/js/` folders in order to compile again.
-* `gulp js:prod`: combines and minifies the needed JS files.
-* `gulp default`: executes sass and js:prod tasks and starts watching.
-* `gulp prod`: executes sass:prod and js:prod tasks.
+* `gulp scss-lint`: it helps you to keep your SCSS files clean and readable.
+* `gulp modernizr`: creates a `modernizr.js` file with the selected tests.
+* `gulp js:prod`: combines and minifies the needed JS files, including `modernizr.js`.
+* `gulp sprites`: creates a SVG sprite.
+* `gulp watch`: checks SCSS, JS and SVG changes to launch the corresponding task.
+* `gulp default`: executes sass, js:prod, sprites and starts watching.
+* `gulp prod`: executes sass:prod, modernizr, js:prod and spritest tasks.
 
 As you see, you should create and/or edit .scss files within the `app/Resources/assets/scss/` folder. An initial
 structure is already given for you. You can also add/or edit .js files, but **remember** to modify `gulpfile.js`
@@ -150,7 +150,7 @@ stof_doctrine_extensions:
 ```
 
 Some extensions do need an extra configuration in the `doctrine` section of the `app/config/config.yml` file. Check
-the full configuration [here][25].
+the full configuration [here][24].
 
 For the other possible configurations, visit the [bundle documentation][7]
 
@@ -171,7 +171,7 @@ Git project url.
 Inside `deploy/stages` directory there are two files that can be considered as pre-production stage and production stage.
 There is no logic, these files only contain few parameters that you should customize for your proper deployment.
 
-After all, and following the Capistrano [documentation][12] to configure the server, you can deploy executing:
+After all, and following the Capistrano [documentation][11] to configure the server, you can deploy executing:
 ```
 $ cap <stage> deploy    # <stage> can be dev1, prod or whatever file inside stages directory
 ```
@@ -200,19 +200,18 @@ command must use the `-u user:password` given in the `dev1.rb` example file.
 [7]: https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst
 [8]: http://sass-lang.com/
 [9]: https://www.npmjs.com/
-[10]: http://bower.io/
-[11]: http://gulpjs.com/
-[12]: http://capistranorb.com/
-[13]: https://html5boilerplate.com/
-[14]: http://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
-[15]: https://github.com/LIN3S/CS
-[16]: http://php.net
-[17]: http://dev.mysql.com/downloads/
-[18]: https://www.mongodb.org/
-[19]: https://getcomposer.org/
-[20]: https://www.ruby-lang.org/en/downloads/
-[21]: https://nodejs.org/download/
-[22]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
-[23]: http://symfony.com/doc/master/cookbook/logging/monolog.html
-[24]: https://www.jetbrains.com/phpstorm/
-[25]: https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst#step-3-add-the-extensions-to-your-mapping
+[10]: http://gulpjs.com/
+[11]: http://capistranorb.com/
+[12]: https://html5boilerplate.com/
+[13]: http://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
+[14]: https://github.com/LIN3S/CS
+[15]: http://php.net
+[16]: http://dev.mysql.com/downloads/
+[17]: https://www.mongodb.org/
+[18]: https://getcomposer.org/
+[19]: https://www.ruby-lang.org/en/downloads/
+[20]: https://nodejs.org/download/
+[21]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
+[22]: http://symfony.com/doc/master/cookbook/logging/monolog.html
+[23]: https://www.jetbrains.com/phpstorm/
+[24]: https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst#step-3-add-the-extensions-to-your-mapping

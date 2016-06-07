@@ -2,11 +2,18 @@
   "name": "symfony-standard",
   "main": "gulpfile.js",
   "author": "LIN3S",
-  "devDependencies": {
+  "dependencies": {
+    "fastclick": "^1.0.6",
+    "foundation-sites": "^6.2.3",
+    "picturefill": "^3.0.2",
+    "svg4everybody": "^2.0.3"
+  },
+    "devDependencies": {
     "gulp":              "^3.9.0",
     "gulp-concat":       "^2.6.0",
     "gulp-cssnano":      "^2.1.0",
     "gulp-livereload":   "^3.8.1",
+    "gulp-modernizr":    "0.0.0",
     "gulp-plumber":      "^1.1.0",
     "gulp-postcss":      "^6.1.0",
     "gulp-rename":       "^1.2.2",
