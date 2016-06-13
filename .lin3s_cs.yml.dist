@@ -61,11 +61,19 @@ parameters:
                 convention: hyphenated_BEM
     eslint_path: app/Resources/assets/js
     eslint_file_location: .
-    eslint_exclude: []
+    eslint_exclude:
+        - cookies.js
     eslint_rules:               # available rules can view in http://eslint.org/docs/rules/
-        ecmaFeatures: []
+        ecmaFeatures: {  }
         env:
             browser: true
             jquery: true
-        globals: []
-        rules: []
+        globals:
+            dataLayer: true
+            FastClick: true
+            Modernizr: true
+            svg4everybody: true
+        rules:
+            max-len:
+                - 2
+                - 120
