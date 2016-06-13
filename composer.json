@@ -78,7 +78,10 @@
         ]
     },
     "autoload": {
-        "psr-4": { "": "src/" },
+        "psr-4": {
+            "AppBundle\\": "src/AppBundle/",
+            "Application\\Sonata\\UserBundle\\": "src/Application/Sonata/UserBundle/"
+        },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ],
         "exclude-from-classmap": [ "/Tests/", "/test/", "/tests/" ]
     },
