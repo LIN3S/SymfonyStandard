@@ -60,9 +60,20 @@ will ask you some questions in order to create the needed file. If you want to c
 `php app/console doctrine:migrations:migrate` command.
 
 After that, *if you use a Web server*, you should visit the [Symfony permissions section][21] of the installation
-documentation so your CLI user and Web server user are allowed to write. Also, if you are using Apache Web server,
-consider renaming `.htaccess.dist` files located within `app`, `src` and `web` folders to `.htaccess` or create the
-proper server configuration to improve global performances.
+documentation so your CLI user and Web server user are allowed to write **cache**, **logs** and *sessions** folders.
+You may use these commands:
+```
+$ rm -rf app/cache/*
+$ rm -rf app/logs/*
+$ rm -rf app/sessions/*
+
+$ HTTPDUSER=`ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
+$ sudo chmod +a "$HTTPDUSER allow delete,write,append,file_inherit,directory_inherit" app/cache app/logs app/sessions
+$ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" app/cache app/logs app/sessions
+```
+
+Also, if you are using Apache Web server, consider renaming `.htaccess.dist` files located within the `app`, `src` and
+`web` folders to `.htaccess` or create the proper server configuration to improve global performances.
 
 If you are willing to use LiipImagineBundle, create the needed folder:
 ```
@@ -211,7 +222,7 @@ stages, feel free to create a variable and add the required parameters to the `s
 [18]: https://getcomposer.org/
 [19]: https://www.ruby-lang.org/en/downloads/
 [20]: https://nodejs.org/download/
-[21]: http://symfony.com/doc/current/book/installation.html#book-installation-permissions
+[21]: http://symfony.com/doc/2.8/book/installation.html#book-installation-permissions
 [22]: http://symfony.com/doc/master/cookbook/logging/monolog.html
 [23]: https://www.jetbrains.com/phpstorm/
 [24]: https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst#step-3-add-the-extensions-to-your-mapping
