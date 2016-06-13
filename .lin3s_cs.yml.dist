@@ -64,7 +64,7 @@ parameters:
     eslint_exclude:
         - cookies.js
     eslint_rules:               # available rules can view in http://eslint.org/docs/rules/
-        ecmaFeatures: {  }
+        ecmaFeatures: []
         env:
             browser: true
             jquery: true
