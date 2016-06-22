@@ -30,6 +30,7 @@
 !bin/symfony_requirements
 /vendor
 /web/bundles
+/web/svg
 /web/uploads
 /build
 /web/css
