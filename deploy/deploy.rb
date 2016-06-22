@@ -57,6 +57,12 @@ load File.expand_path('../tasks/compile_upload.rake', __FILE__)
 load File.expand_path('../tasks/database_migrations.rake', __FILE__)
 
 ##############################################
+# Download database. Usage:
+# - cap <stage> database:download
+##############################################
+load File.expand_path('../tasks/database_download.rake', __FILE__)
+
+##############################################
 # Clear accelerator caches
 ##############################################
 load File.expand_path('../tasks/cache_clear.rake', __FILE__)
