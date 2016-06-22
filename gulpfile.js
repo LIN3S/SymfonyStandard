@@ -97,16 +97,26 @@ gulp.task('modernizr', function () {
     .pipe(gulp.dest(paths.buildJs))
 });
 
+var jsFiles = [
+  paths.buildJs + '/modernizr.js',
+  paths.npm + '/fastclick/lib/fastclick.js',
+  paths.npm + '/svg4everybody/dist/svg4everybody.min.js',
+  paths.npm + '/picturefill/dist/picturefill.min.js',
+  paths.npm + '/jquery/dist/jquery.js',
+  //paths.npm + '/foundation-sites/dist/foundation.js',
+  paths.js + '/**/*.js'
+];
+
+gulp.task('js', ['modernizr'], function () {
+  gulp.src(jsFiles)
+    .pipe(plumber({
+      errorHandler: onError
+    }))
+    .pipe(gulp.dest(paths.buildJs));
+});
+
 gulp.task('js:prod', ['modernizr'], function () {
-  gulp.src([
-      paths.buildJs + '/modernizr.js',
-      paths.npm + '/fastclick/lib/fastclick.js',
-      paths.npm + '/svg4everybody/dist/svg4everybody.min.js',
-      paths.npm + '/picturefill/dist/picturefill.min.js',
-      paths.npm + '/jquery/dist/jquery.js',
-      //paths.npm + '/foundation-sites/dist/foundation.js',
-      paths.js + '/**/*.js'
-    ])
+  gulp.src(jsFiles)
     .pipe(plumber({
       errorHandler: onError
     }))

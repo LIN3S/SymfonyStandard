@@ -137,6 +137,7 @@ After this initial step, you will have the following gulp tasks available:
 * `gulp sass:prod`: compiles and minifies `app/Resources/assets/scss/app.scss` and moves the resulting file to `web/` folder.
 * `gulp scss-lint`: it helps you to keep your SCSS files clean and readable.
 * `gulp modernizr`: creates a `modernizr.js` file with the selected tests.
+* `gulp js`: copies the JS files to the `web/js` folder to work in the dev environment.
 * `gulp js:prod`: combines and minifies the needed JS files, including `modernizr.js`.
 * `gulp sprites`: creates a SVG sprite.
 * `gulp watch`: checks SCSS, JS and SVG changes to launch the corresponding task.
@@ -145,7 +146,7 @@ After this initial step, you will have the following gulp tasks available:
 
 As you see, you should create and/or edit .scss files within the `app/Resources/assets/scss/` folder. An initial
 structure is already given for you. You can also add/or edit .js files, but **remember** to modify `gulpfile.js`
-`js:prod` tasks in order to add what your project needs.
+`jsFiles` variable in order to add what your project needs, adding the new files to `base.html.twig` too.
 
 Also, `livereload` is up and running when launching `gulp watch`. You should install the correct browser extension and
 be sure to navigate through the dev environment.

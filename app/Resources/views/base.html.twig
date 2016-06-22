@@ -107,8 +107,19 @@
     {% endblock body_end_before_js %}
 
     {% block foot_script %}
-    {# Overwrite this block to add your own js here #}
-    <script src="{{ asset('js/app.min.js') }}"></script>
+        {# Overwrite this block to add your own js here #}
+        {% if app.debug %}
+            <script src="{{ asset('js/modernizr.js') }}"></script>
+            <script src="{{ asset('js/fastclick.js') }}"></script>
+            <script src="{{ asset('js/svg4everybody.min.js') }}"></script>
+            <script src="{{ asset('js/picturefill.min.js') }}"></script>
+            <script src="{{ asset('js/jquery.js') }}"></script>
+            <script src="{{ asset('js/app.js') }}"></script>
+            <script src="{{ asset('js/cookies.js') }}"></script>
+            <script src="{{ asset('js/fastclick.js') }}"></script>
+        {% else %}
+            <script src="{{ asset('js/app.min.js') }}"></script>
+        {% endif %}
     {% endblock foot_script %}
 {% endblock body %}
 
