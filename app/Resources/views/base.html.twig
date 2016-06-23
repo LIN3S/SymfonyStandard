@@ -28,11 +28,11 @@
     {# Schema.org markup for Google+
       - Info: https://developers.google.com/structured-data/
       - Validator: https://developers.google.com/structured-data/testing-tool/
-    <meta itemprop="name" content="Symfony Standard">
-    <meta itemprop="description" content="This is the page description">
-    <meta itemprop="image" content="http://www.example.com/image.jpg">#}
+    <meta itemprop="name" content="{{ block('title') }}">
+    <meta itemprop="description" content="{{ block('meta_description') }}">
+    <meta itemprop="image" content="{{ block('open_graph_image') }}"> #}
     {% endblock schema_org %}
-    
+
     {% block twitter_card %}
     {# Twitter Card data, use only when needed
       - Info: https://dev.twitter.com/cards/overview
@@ -40,21 +40,21 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@publisher_handle">
     <meta name="twitter:creator" content="@author_handle">
-    <meta name="twitter:title" content="Page Title">
-    <meta name="twitter:description" content="Page description less than 200 characters">
-    <meta name="twitter:image" content="http://www.example.com/image.jpg">#}
+    <meta name="twitter:title" content="{{ block('title') }}">
+    <meta name="twitter:description" content="{{ block('meta_description') }}">
+    <meta name="twitter:image" content="{{ block('open_graph_image') }}"> #}
     {% endblock twitter_card %}
-    
+
     {% block open_graph %}
     {# Open Graph data, use only when needed
       - Info: https://developers.facebook.com/docs/sharing/best-practices#tags
-      - Validator: https://developers.facebook.com/tools/debug
-    <meta property="og:title" content="Title Here" />
-    <meta property="og:site_name" content="Symfony Standard" />
-    <meta property="og:url" content="http://www.example.com/" />
-    <meta property="og:description" content="Description Here" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="http://example.com/image.jpg" /> #}
+      - Validator: https://developers.facebook.com/tools/debug 
+    <meta property="og:title" content="{{ block('title') }}" />
+    <meta property="og:site_name" content="{{ block('title') }}" />
+    <meta property="og:url" content="{{ app.request.schemeAndHttpHost }}" />
+    <meta property="og:description" content="{{ block('meta_description') }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{% block open_graph_image %}{{ app.request.schemeAndHttpHost ~ asset('images/opengraph.png') }}{% endblock %}" />  #}
     {% endblock open_graph %}
 
     {% block head_script %}
