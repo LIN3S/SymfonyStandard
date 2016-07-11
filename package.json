@@ -6,7 +6,7 @@
     "fastclick": "^1.0.6",
     "foundation-sites": "^6.2.3",
     "picturefill": "^3.0.2",
-    "svg4everybody": "^2.0.3"
+    "svg4everybody": "^2.1.0"
   },
     "devDependencies": {
     "gulp":              "^3.9.0",
@@ -21,7 +21,7 @@
     "gulp-scss-lint":    "^0.4.0",
     "gulp-svg-sprite":   "^1.3.1",
     "gulp-uglify":       "^1.5.0",
-    "postcss-cssnext":   "^2.5.2"
+    "postcss-cssnext":   "^2.7.0"
   },
   "scripts": {
     "phoenix": "rm -rf node_modules && npm install"
