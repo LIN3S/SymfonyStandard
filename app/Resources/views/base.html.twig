@@ -58,7 +58,7 @@
     {% endblock open_graph %}
 
     {% block head_script %}
-    {# Overwrite this block to add your own js here #}
+        <script src="{{ asset('js/modernizr.js') }}"></script>
     {% endblock head_script %}
 
     {% block head_bottom %}
@@ -109,7 +109,6 @@
     {% block foot_script %}
         {# Overwrite this block to add your own js here #}
         {% if app.debug %}
-            <script src="{{ asset('js/modernizr.js') }}"></script>
             <script src="{{ asset('js/fastclick.js') }}"></script>
             <script src="{{ asset('js/svg4everybody.min.js') }}"></script>
             <script src="{{ asset('js/picturefill.min.js') }}"></script>

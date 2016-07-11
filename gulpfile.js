@@ -84,7 +84,7 @@ gulp.task('scss-lint', function () {
 });
 
 gulp.task('modernizr', function () {
-  return gulp.src([paths.js + '/*.js'])
+  return gulp.src([paths.js + '/**/*.js'])
     .pipe(plumber({
       errorHandler: onError
     }))
@@ -98,7 +98,6 @@ gulp.task('modernizr', function () {
 });
 
 var jsFiles = [
-  paths.buildJs + '/modernizr.js',
   paths.npm + '/fastclick/lib/fastclick.js',
   paths.npm + '/svg4everybody/dist/svg4everybody.min.js',
   paths.npm + '/picturefill/dist/picturefill.min.js',
@@ -149,6 +148,6 @@ gulp.task('watch', ['sass', 'js:prod'], function () {
   gulp.watch(paths.svg + '/**/*.js', ['sprites']);
 });
 
-gulp.task('default', ['sass', 'js:prod', 'sprites', 'watch']);
+gulp.task('default', ['sass', 'modernizr', 'js', 'sprites', 'watch']);
 
 gulp.task('prod', ['sass:prod', 'modernizr', 'js:prod', 'sprites']);
