@@ -1,7 +1,0 @@
-{
-  "name": "symfony-standard",
-  "author": "LIN3S",
-  "dependencies": {
-    "foundation-sites": "~6.2"
-  }
-}
