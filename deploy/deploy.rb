@@ -63,6 +63,12 @@ load File.expand_path('../tasks/database_migrations.rake', __FILE__)
 load File.expand_path('../tasks/database_download.rake', __FILE__)
 
 ##############################################
+# Checks and/or creates linked files. Usage:
+# - cap <stage> server:ensure
+##############################################
+load File.expand_path('../tasks/server_ensure.rake', __FILE__)
+
+##############################################
 # Clear accelerator caches
 ##############################################
 load File.expand_path('../tasks/cache_clear.rake', __FILE__)
