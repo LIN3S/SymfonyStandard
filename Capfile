@@ -18,3 +18,6 @@ require 'capistrano/setup'
 # Includes default deployment tasks
 require 'capistrano/deploy'
 require 'capistrano/symfony'
+
+# Override the default path to bundle deployments scripts and tasks
+Dir.glob('deploy/tasks/*.cap').each { |r| import r }

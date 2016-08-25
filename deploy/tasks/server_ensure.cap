@@ -13,7 +13,7 @@ namespace :server do
   reset = "\033[0m"
   success =  "\e[1m\e[32m"
   failure =  "\e[1m\e[31m"
-  desc "Ensure linked server files"
+  desc 'Ensure linked server files'
   task :ensure do
     on roles(:all) do |host|
       fetch(:linked_files, []).each do |file|
