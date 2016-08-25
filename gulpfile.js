@@ -102,6 +102,7 @@ var jsFiles = [
   paths.npm + '/svg4everybody/dist/svg4everybody.min.js',
   paths.npm + '/picturefill/dist/picturefill.min.js',
   paths.npm + '/jquery/dist/jquery.js',
+  paths.npm + '/bengor-cookies/dist/bengor-cookies.js',
   //paths.npm + '/foundation-sites/dist/foundation.js',
   paths.js + '/**/*.js'
 ];

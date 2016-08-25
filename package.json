@@ -3,6 +3,7 @@
   "main": "gulpfile.js",
   "author": "LIN3S",
   "dependencies": {
+    "bengor-cookies": "^0.4.0",
     "fastclick": "^1.0.6",
     "foundation-sites": "^6.2.3",
     "picturefill": "^3.0.2",

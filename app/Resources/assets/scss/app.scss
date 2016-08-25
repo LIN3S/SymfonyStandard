@@ -20,6 +20,8 @@
 @include foundation-flex-classes;
 @include foundation-flex-grid;
 
+@import '../../../../node_modules/bengor-cookies/src/scss/bengor-cookies';
+
 @import 'base/common';
 
 @import 'layout/header';
@@ -27,7 +29,6 @@
 @import 'layout/footer';
 
 //@import 'components/button';
-@import 'components/cookies';
 @import 'components/deprecation-notice';
 
 //@import 'pages/default';
