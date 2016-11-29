@@ -12,6 +12,6 @@
 namespace :cache do
   desc 'Clear accelerator caches'
   task :clear do
-    invoke 'symfony:console', 'cache:accelerator:clear', '--opcode --no-interaction'
+    invoke 'symfony:console', 'cache:accelerator:clear', "#{fetch(:cache_opts)}"
   end
 end
